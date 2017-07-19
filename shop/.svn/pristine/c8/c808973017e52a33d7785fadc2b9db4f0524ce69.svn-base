@@ -1,0 +1,266 @@
+
+
+.city {
+	width: 180px;
+	_width: 180px;
+	margin-top:40px;
+	float:left;
+}
+
+.city .city-name {
+	font: normal 17px 微软雅黑;
+	vertical-align: -2px;
+	_vertical-align: -3px;
+}
+
+.red {
+	color: #e38d00;
+	font: normal 17px 微软雅黑;
+}
+
+.red,a.red {
+	color: #e38d00;
+}
+
+.Left {
+	float: left;
+}
+
+.city-select {
+	height: 22px;
+	margin-right: 5px;
+	position: relative;
+	z-index: 32;
+}
+
+.city-select.hover .selector {
+	background: #e38d00;
+	color: #FFF;
+}
+
+.city-select .selector {
+	width: 59px;
+	height: 18px;
+	line-height: 18px;
+	padding-left: 5px;
+	margin-left: 5px;
+	margin-top: 2px;
+	color: #717171;
+	text-decoration: none;
+	display: inline-block;
+	vertical-align: top;
+	background-position: -58px -79px;
+}
+
+.common-bg {
+	background: url(site-bg.png) no-repeat;
+	_background: url(site-bg.gif) no-repeat;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+.city-select .hide_city_group {
+	display: none;
+}
+
+.city-select .hideMap {
+	width: 400px;
+	padding: 10px 15px;
+	border: 1px solid #dcdedf;
+	background: #FFF;
+	position: absolute;
+	left: 5px;
+	top: 18px;
+	display: inline;
+	color: #444;
+}
+
+.city-select .hideMap .showPanel {
+	border-bottom: solid 1px #E9E9E9;
+	padding-bottom: 10px;
+}
+
+.city-select .hideMap .showPanel .mycity {
+	line-height: 20px;
+}
+
+.city-select .hideMap .showPanel .near {
+	height: 20px;
+	display: inline-block;
+	padding: 0 6px 0 20px;
+	text-align: center;
+	line-height: 20px;
+	background: #FFFAF0 url(change_city3.gif) -20px 3px no-repeat;
+	border: 1px solid #F5E6BF;
+	border-radius: 3px;
+	color: #CF2C2D;
+}
+
+.Right {
+	float: right;
+}
+
+.city-select .hideMap .showPanel2 {
+	padding-top: 10px;
+}
+
+.city-select .hideMap .showPanel {
+	border-bottom: solid 1px #E9E9E9;
+	padding-bottom: 10px;
+}
+
+.city-select .hideMap .showPanel2 .city_words a:hover,.city-select .hideMap .showPanel2 .hot_city a:hover,.city-select .hideMap .cityMap .city_list td a:hover{
+	color: #FFF !important;
+	background: #e38d00;
+	text-decoration: none;
+}
+
+.city-select .hideMap .showPanel2 .hot_city a {
+	display: inline-block;
+	padding: 0 3px;
+	line-height: 19px;
+	margin-right: 2px;
+}
+
+.city-select .hideMap .showPanel2 a {
+	color: #434343;
+}
+
+.mt10 {
+	margin-top: 10px;
+}
+
+.city-select .hideMap .showPanel2 .search_city_tip {
+	position: absolute;
+	width: 169px;
+	height: 20px;
+	text-align: center;
+	color: #EE7001;
+	background: #FFFDE6;
+	border: 1px solid #E5935B;
+	box-shadow: 2px 2px 2px #999;
+	margin-top: 25px;
+	line-height: 20px;
+}
+
+.city-select .hideMap .showPanel2 .search_city_input {
+	width: 114px;
+	height: 22px;
+	padding: 0 5px;
+	border: 1px solid #CCC;
+	border-right: 0;
+	color: #999;
+	vertical-align: middle;
+	line-height: 22px\0;
+}
+
+.city-select .hideMap .showPanel2 .search_city_submit {
+	border: 1px solid #BBB;
+	display: inline-block;
+	width: 46px;
+	height: 24px;
+	text-align: center;
+	line-height: 22px;
+	color: #444;
+	vertical-align: middle;
+	background: #FFF;
+	font: normal 12px Arial;
+	cursor: pointer;
+	background: url(change_city3.gif) -45px -15px;
+}
+
+.city-select .hideMap .showPanel2 .city_words a {
+	display: inline-block;
+	width: 17px;
+	text-align: center;
+	color: #e38d00;
+	font: normal 14px Arial;
+}
+
+.city-select .hideMap .scrollBody {
+	height: 180px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.city-select .hideMap .cityMap {
+	width: 385px;
+	height: 180px;
+	float: left;
+}
+
+.city-select .hideMap .cityMap .city_list {
+	width: 385px;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.city-select .hideMap .cityMap .city_list th {
+	vertical-align: top;
+}
+
+th,td {
+	vertical-align: middle;
+}
+
+.city-select .hideMap .cityMap .city_list th div {
+	width: 19px;
+	height: 19px;
+	padding-right: 2px;
+	background: url(change_city3.gif) -20px -17px;
+	text-align: center;
+	line-height: 19px;
+	color: #FFF;
+	font: normal 14px Arial;
+	margin-bottom: 11px;
+	overflow: hidden;
+}
+
+.city-select .hideMap .cityMap .city_list td {
+	line-height: 19px;
+	vertical-align: top;
+	padding-bottom: 11px;
+	padding-left: 5px;
+}
+
+.city-select .hideMap .cityMap .city_list td a {
+	display: inline-block;
+	padding: 0 5px;
+	line-height: 19px;
+}
+
+.city-select .hideMap .scrollBar {
+	width: 10px;
+	height: 180px;
+	float: right;
+	overflow: hidden;
+	background: url(change_city3.gif) -10px 0 repeat-y;
+	cursor: pointer;
+}
+
+.city-select .hideMap .scrollBar span {
+	width: 10px;
+	height: 36px;
+	overflow: hidden;
+	cursor: pointer;
+	background: url(change_city3.gif) 0 0 no-repeat;
+	display: inline-block;
+}
+
+.clearfix {
+	*zoom: 1
+}
+
+.clearfix:after {
+	content: '.';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}

@@ -1,0 +1,119 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</HEAD>
+<body>
+	<center>
+	<center><s:actionerror /></center>
+		<form id="userAction_save_do" name="Form1"
+			action="${pageContext.request.contextPath}/adminAdvertisement_add.action"
+			method="post" enctype="multipart/form-data">
+			<input type="hidden" name="aid" value="1">
+			 <input type="hidden" name="mageindex1" value="<s:property value="model.mageindex1"/>">
+			 <input type="hidden" name="mageindex2" value="<s:property value="model.mageindex2"/>">
+			 <input type="hidden" name="mageindex3" value="<s:property value="model.mageindex3"/>">
+			 <input type="hidden" name="mageindex4" value="<s:property value="model.mageindex4"/>">
+			 <input type="hidden" name="mageindex5" value="<s:property value="model.mageindex5"/>">
+			 <input type="hidden" name="mageindex6" value="<s:property value="model.mageindex6"/>">
+			请选择需要上传的图片1：<input type="file" id="dofile1" name="upload" /><br/>
+			请选择需要上传的图片2：<input type="file" id="dofile2" name="upload" /><br/>
+			请选择需要上传的图片3：<input type="file" id="dofile3" name="upload" /><br/>
+			请选择需要上传的图片4：<input type="file" id="dofile4" name="upload" /><br/>
+			请选择需要上传的图片5：<input type="file" id="dofile5" name="upload" /><br/>
+			请选择需要上传的图片6：<input type="file" id="dofile6" name="upload" /><br/> 
+			图片尺寸要求：1600 * 665;
+			<input
+				 type="submit" value="开始上传" onclick="validate()"></input>
+		</form>
+
+	</center>
+	<script type="text/javascript">
+		//验证图片格式  
+		function validateFileFormat() {
+			//获取欲上传的文件路径  
+			var filepath1 = document.getElementById('dofile1').value;
+			var d1 = /\.[^\.]+$/.exec(filepath1);
+			var filepath2 = document.getElementById('dofile2').value;
+			var d2 = /\.[^\.]+$/.exec(filepath2);
+			var filepath3 = document.getElementById('dofile3').value;
+			var d3 = /\.[^\.]+$/.exec(filepath3);
+			var filepath4 = document.getElementById('dofile4').value;
+			var d4 = /\.[^\.]+$/.exec(filepath4);
+			var filepath5 = document.getElementById('dofile5').value;
+			var d5 = /\.[^\.]+$/.exec(filepath5);
+			var filepath6 = document.getElementById('dofile6').value;
+			var d5 = /\.[^\.]+$/.exec(filepath6);
+
+			//为了避免转义反斜杠出问题，这里将对其进行转换  
+			var tp = ".jpg,.image,.gif,.jpeg,.png,.bmp,.JPG,.GIF,.BMP,.IMAGE,.JPEG,.PNG";
+			//返回符合条件的后缀名在字符串中的位置  
+			var rs1 = tp.indexOf(d1);
+			var rs2 = tp.indexOf(d2);
+			var rs3 = tp.indexOf(d3);
+			var rs4 = tp.indexOf(d4);
+			var rs5 = tp.indexOf(d5);
+			var rs6 = tp.indexOf(d6);
+			//如果返回的结果大于或等于0，说明包含允许上传的文件类型  
+			if (rs1 >= 0) {
+				if (rs2 >= 0) {
+					if (rs3 >= 0) {
+						if (filepath4 == "") {
+							if (filepath5 == "") {
+								return true;
+							} else {
+
+								if (rs5 >= 0) {
+									return true;
+								} else {
+									alert("您选择类型不是有效的图片格式!");
+									return false;
+								}
+							}
+						} else {
+							if (rs4 >= 0) {
+								if (filepath5 == "") {
+									return true;
+								} else {
+									if (rs5 >= 0) {
+										return true;
+									} else {
+										alert("您选择不是有效的图片格式!");
+										return false;
+									}
+								}
+							} else {
+								alert("您选择不是有效的图片格式!");
+								return false;
+							}
+						}
+
+					} else {
+						alert("您选择不是有效的图片格式!");
+						return false;
+					}
+
+				} else {
+					alert("您选择不是有效的图片格式!");
+					return false;
+				}
+
+			} else {
+				alert("您选择不是有效的图片格式!");
+				return false;
+			}
+
+		}
+
+		//上传图片  
+		function validate() {
+			//验证图片格式是否正确  
+			var flag = validateFileFormat();
+
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,248 @@
+package cn.itcast.shop.user.action;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.sql.SQLException;
+import java.util.Random;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.itcast.shop.user.service.UserService;
+import cn.itcast.shop.user.vo.User;
+
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+/**
+ * 用户模块Action的类
+ * 
+ * 项目名称：shop00 类名称：UserAction 类描述： 创建人：Teemo 创建时间：2017年4月18日 上午11:16:58
+ * 修改人：Teemo 修改时间：2017年4月18日 上午11:16:58 修改备注：
+ * 
+ * @version
+ * 
+ */
+public class UserAction extends ActionSupport implements ModelDriven<User> {
+	// 模型驱动使用的对象
+	private User user = new User();
+
+	public User getModel() {
+		return user;
+	}
+
+	private static String[] ipcode = new String[10];
+	private static int index = 0;
+	
+	
+	// 接收验证码:
+	private String Code;
+	
+	public void setCode(String code) {
+		this.Code = code;
+	}
+
+	// private String checkcode;
+	//
+	// public void setCheckcode(String checkcode) {
+	// this.checkcode = checkcode;
+	// }
+	// 注入UserService
+	private UserService userService;
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	/**
+	 * 跳转到注册页面的执行方法
+	 */
+	public String registPage() {
+		// Struts.xml-配置用户模块的Action-result name
+		return "registPage";
+	}
+
+	/**
+	 * AJAX进行异步校验用户名的执行方法
+	 * 
+	 * @throws IOException
+	 */
+	public String findByName() throws IOException {
+		// 调用Service进行查询:
+		User existUser = userService.findByUsername(user.getUsername());
+		// 获得response对象,向页面输出:
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html;charset=UTF-8");
+		// 判断
+		if (existUser != null) {
+			// 查询到该用户:用户名已经存在
+			response.getWriter().println("<font color='red'>用户名已经存在</font>");
+		} else {
+			// 没查询到该用户:用户名可以使用
+			response.getWriter().println("<font color='green'>用户名可以使用</font>");
+		}
+		// 因为ajax所以不需要跳转
+		return NONE;
+	}
+	
+	public String findByPhone() throws IOException {
+		// 调用Service进行查询:
+		User existUser = userService.findByPhone(user.getPhone());
+		// 获得response对象,向页面输出:
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html;charset=UTF-8");
+		// 判断
+		if (existUser != null) {
+			// 查询到该用户:用户名已经存在
+			response.getWriter().println("<font color='red'>手机号已经存在</font>");
+		} else {
+			// 没查询到该用户:用户名可以使用
+			response.getWriter().println("<font color='green'>手机号可以使用</font>");
+		}
+		// 因为ajax所以不需要跳转
+		return NONE;
+	}
+
+	/**
+	 * 用户注册的方法:
+	 * @throws IOException 
+	 */
+	public String regist() throws IOException {
+		// 判断验证码程序:
+		// 从session中获得验证码的随机值:
+		// String checkcode1 = (String) ServletActionContext.getRequest()
+		// .getSession().getAttribute("checkcode");
+		// if(!checkcode.equalsIgnoreCase(checkcode1)){
+		// this.addActionError("验证码输入错误!");
+		// return "checkcodeFail";
+		// }
+//		HttpServletResponse response = ServletActionContext.getResponse();
+//		HttpServletRequest request = ServletActionContext.getRequest();
+//		response.setContentType("text/html;charset=UTF-8");
+//		String res = null;
+		System.out.println("---------------------------------------------------"+ Code);
+		for (int i = 0; i < 10; i++) {
+			System.out.println("ipcode["+i+"]="+ipcode[i]);
+			String[] ipandcode = ipcode[i].split("&");
+			System.out.println("checkip="+ipandcode[0]);
+			System.out.println("checkcode="+ipandcode[1]);
+			if (user.getPhone().equalsIgnoreCase(ipandcode[0]) && Code.equalsIgnoreCase(ipandcode[1])) {// 短信验证码成功
+//				
+				userService.save(user);
+				this.addActionMessage("注册成功!");
+//				res="1";
+//				response.getWriter().write(res);
+				return "msg";
+			}
+		}
+//		res="-1";
+//		response.getWriter().write(res);
+		this.addActionMessage("注册失败!");
+		return "checkcodeFail";
+	}
+
+	public void checkCode() throws SQLException, IOException {
+		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		if (this.index == 9)
+			this.index = 0;
+		String UCellPhone = request.getParameter("phone");
+		System.out.println("phone=" + UCellPhone);
+		String code = this.GenCode(4);
+		ipcode[index++] = UCellPhone + "&" + code;
+//		System.out.println("数组："+ipcode[index-1]);
+		String result = this.sendMessage(UCellPhone, code);
+		System.out.println("code=" + code);
+		PrintWriter out = response.getWriter();
+		String res = "1";
+		out.write(res);
+	}
+
+	private String GenCode(int num) {
+		String[] source = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+		String code = "";
+		Random rd = new Random();
+		for (int i = 0; i < num; i++) {
+			code += source[rd.nextInt(source.length)];
+		}
+		return code;
+	}
+
+	private String sendMessage(String mobile, String code)
+			throws UnsupportedEncodingException {
+		String sn = "SDK-WSS-010-08912";
+		String pwd = "cFF-F9dF";
+		Client client = new Client(sn, pwd);
+
+		// 发送短信验证码
+		String contentinit = "金鼎好车，验证码：" + code + ",欢迎使用注册【无锡君泰】";
+		String content = URLEncoder.encode(contentinit, "utf8");
+		String result_mt = client.mdsmssend(mobile, content, "", "", "", "");
+		// System.out.print(result_mt);
+		return result_mt;
+	}
+
+	/**
+	 * 用户激活的方法
+	 */
+//	 public String active() {
+//	 // 根据激活码查询用户:
+//	 User existUser = userService.findByCode(user.getCode());
+//	 // 判断
+//	 if (existUser == null) {
+//	 // 激活码错误的
+//	 this.addActionMessage("激活失败:激活码错误!");
+//	 } else {
+//	 // 激活成功
+//	 // 修改用户的状态
+//	 existUser.setState(1);
+//	 existUser.setCode(null);
+//	 userService.update(existUser);
+//	 this.addActionMessage("激活成功:请去登录!");
+//	 }
+//	 return "msg";
+//	 }
+
+	/**
+	 * 跳转到登录页面
+	 */
+	public String loginPage() {
+		return "loginPage";
+	}
+
+	/**
+	 * 登录的方法
+	 */
+	public String login() {
+		User existUser = userService.login(user);
+		// 判断
+		if (existUser == null) {
+			// 登录失败
+			this.addActionError("登录失败:用户名或密码错误!");
+			return LOGIN;
+		} else {
+			// 登录成功
+			// 将用户的信息存入到session中
+			ServletActionContext.getRequest().getSession()
+					.setAttribute("existUser", existUser);
+			// 页面跳转
+			return "loginSuccess";
+		}
+
+	}
+
+	/**
+	 * 用户退出的方法
+	 */
+	public String quit() {
+		// 销毁session
+		ServletActionContext.getRequest().getSession().invalidate();
+		return "quit";
+	}
+
+}

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.shop.product.vo.Product" table="product">
+		<id name="pid">
+		<!-- 主键的生成策略 -->
+			<generator class="native"/>
+		</id>
+		<property name="pname"/>
+		
+		<property name="market_price"/>
+		<property name="shop_price"/>
+		<property name="image"/>
+		
+		<property name="pdesc"/>
+		<property name="is_hot"/>
+		<property name="pdate"/>
+		<property name="type"/>
+		<property name="colour"/>
+		<property name="city"/>
+		<property name="carSeries"/>
+		<property name="carDate"/>
+		<property name="mileage"/>
+		<property name="displacement"/>
+		<property name="gearbox"/>
+		<property name="country"/>
+		<property name="annualInspection"/>
+		<property name="carInsurance"/>
+		<property name="imageFront"/>
+		<property name="imageBehind"/>
+		<property name="imageLeft"/>
+		<property name="imageRight"/>
+		<property name="imageInterior1"/>
+		<property name="imageInterior2"/>
+		<property name="imageEngine_compartment"/>
+		<property name="imageRoof"/>
+		<property name="imageTrunk"/>
+		<property name="imageChassis"/>
+		
+		<property name="Main_engine_bundle"/>
+		<property name="Firewall_insulation_cotton"/>
+		<property name="Seat_belt"/>
+		<property name="Insurance_box_and_ECU_interface"/>
+		<property name="vehicle_wiring_harness"/>
+		<property name="footmat"/>
+		<property name="seat"/>
+		<property name="trunk"/>
+		<property name="ashtray"/>
+		<property name="slide_and_installation_screw"/>
+		
+		<property name="Engine_wire_and_rubber_products"/>
+		<property name="Vehicle_cover_and_cockpit"/>
+		<property name="A_PILLAR_LH"/>
+		<property name="A_PILLAR_RH"/>
+		<property name="B_PILLAR_LH"/>
+		<property name="B_PILLAR_RH"/>
+		<property name="C_PILLAR_LH"/>
+		<property name="C_PILLAR_RH"/>
+		<property name="D_PILLAR_LH"/>
+		<property name="D_PILLAR_RH"/>
+		
+		<property name="Left_front_wing_subboard_village"/>
+		<property name="Right_wing_front_lining"/>
+		<property name="Left_front_shock_absorber_seat"/>
+		<property name="Right_front_shock_absorber_seat"/>
+		<property name="Left_rear_wing_subplate_lining"/>
+		<property name="Right_rear_wing_subplate_lining"/>
+		<property name="Left_hand_side_beam"/>
+		<property name="Right_hand_side_beam"/>
+		<property name="Left_front_longeron"/>
+		<property name="Right_front_longeron"/>
+		
+		<property name="Left_roof_edge_girder"/>
+		<property name="Right_roof_edge_girder"/>
+		<property name="Left_rear_rail"/>
+		<property name="Right_rear_rail"/>
+		<property name="back_panel"/>
+		<property name="firewall"/>
+		<property name="Dipped_headlight"/>
+		<property name="High_beam"/>
+		<property name="front_fog_lamp"/>
+		<property name="rear_fog_lamp"/>
+		
+		<property name="stop_lamp"/>
+		<property name="backup_light"/>
+		<property name="front_signal"/>
+		<property name="back_signal"/>
+		<property name="Indoor_dome_light"/>
+		<property name="Car_hernias_headlight"/>
+		<property name="LED_headlight"/>
+		<property name="Halogen_lamps"/>
+		<property name="Headlight_height_adjustable"/>
+		<property name="Headlight_cleaning"/>
+		<property name="Automatic_headlamp"/>
+		
+		<property name="Maintenance_Kit"/>
+		<property name="spare_tire"/>
+		<property name="Lifting_jack"/>
+		<property name="Triangle_warning_sign"/>
+		<property name="Fire_Extinguisher"/>
+		<property name="Left_front_shock_absorber"/>
+		<property name="Right_front_shock_absorber"/>
+		<property name="Left_rear_shock_absorber"/>
+		<property name="Rear_right_shock_absorber"/>
+		<property name="Silencer"/>
+		
+		<property name="Engine_cylinder_gasket"/>
+		<property name="Brake_oiler"/>
+		<property name="condenser"/>
+		<property name="Battery"/>
+		<property name="Oil_level"/>
+		<property name="Engine_assembly"/>
+		<property name="Transmission_assembly"/>
+		<property name="Water_pipe"/>
+		<property name="Oiler"/>
+		<property name="Antifreeze_level"/>
+		<property name="Power_Steering_Pump"/>
+		
+		<many-to-one name="categorySecond" lazy="false" class="cn.itcast.shop.categorysecond.vo.CategorySecond" column="csid"/>
+	</class>
+</hibernate-mapping>

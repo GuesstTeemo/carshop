@@ -1,0 +1,70 @@
+﻿@charset "utf-8";
+
+/******基础样式开始******/
+
+body{background:#fff;background-image:url(about:blank);background-attachment:fixed; height:100%;  font-family:Helvetica Neue,Helvetica Neue,Microsoft YaHei,Verdana, Arial, Lucida, Helvetica, sans-serif; font-size:12px; color:#666;}
+html{height:100%;}
+html,body,div,span,p,h1,h2,h3,h4,h5,h6,em,img,strong,blockquote,sub,sup,tt,i,b,dd,dl,dt,form,label,table,caption,tbody, tfoot, thead,tr,th,td,ul,li,p,a,ol{margin:0;padding:0;}
+s,i,em{ font-style:normal; text-decoration:none;}
+ul,ol,li{list-style-type:none;list-style:none;}
+button,input,select,textarea{vertical-align:middle; font-family:Microsoft Yahei; margin:0; padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+address,cite,dfn,em,var{font-style:normal;}
+code,kbd,pre,samp{font-family:courier new,courier,monospace;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+fieldset,img{border:0;}
+button,input,select,textarea{font-size:100%;}
+table{border-collapse:collapse;border-spacing:0;}
+a{color:#666; text-decoration:none;}
+.white,.white a{color:#fff;text-decoration:none;}
+.white,a:hover{color:#0075b3;}
+.clear_fix{clear:both;overflow:hidden;}
+input[type="submit"],input[type="reset"],input[type="button"],button{-webkit-appearance: none;}
+input:focus{outline:none}
+
+.c-white{color:#fff}
+.c-green{color:#95bd28}
+.c-blue{color:#0075b3}
+.c-black{color:#333;}
+.c-gay{color:#666;}
+.c-light-gay{color:#999;}
+.c-red{color:#F30;}
+.c-org{color:#ee7800;}
+
+.row:before,.row:after{clear:both; content:""; display:block;}
+
+.fw{font-family:Microsoft Yahei,Arial, Helvetica, sans-serif;}
+.fl{float:left;}
+.fr{float:right;}
+.fb{font-weight:700;}
+.disb{display:block;}
+.disn{display:none;}
+.hide-egc{overflow:hidden;}
+.re{position:relative;}
+.radius{border-radius:50%; -moz-border-radius:50%; -ms-border-radius:50%; -o-border-radius:50%; -webkit-border-radius:50%;}
+
+em,i,s,b{font-style:normal; text-decoration:none;}
+input{font-family:"Microsoft YaHei","宋体";}
+
+.txt-larger{font-size:55px; line-height:80px;}
+.txt-big{font-size:45px; line-height:60px}
+.txt-medium{font-size:36px;}
+.txt-small{font-size:20px; line-height:38px;}
+.txt-smaller{font-size:16px;}
+
+.txt-larger span{font-size:65px;}
+
+.wrap{margin:60px 0;}
+.mg-bot{margin:0 0 30px 0;}
+
+.txt-center{text-align:center;}
+.font-num{font-family:Arial,Verdana;}
+
+.a-links-blue{color:#0075b3; font-size:16px;}
+.a-links-white{color:#fff; font-size:16px;}
+
+/*input*/
+.ipt-check{margin:0 5px 3px 0; vertical-align:middle;}
+

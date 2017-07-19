@@ -1,0 +1,134 @@
+package cn.itcast.shop.product.action;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import cn.itcast.shop.category.service.CategoryService;
+import cn.itcast.shop.product.service.ProductService;
+import cn.itcast.shop.product.vo.Product;
+import cn.itcast.shop.utils.PageBean;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+/**
+ * 商品的Action对象
+ * 
+ * 项目名称：shop00 类名称：ProductAction 类描述： 创建人：Teemo 创建时间：2017年5月5日 下午2:22:43
+ * 修改人：Teemo 修改时间：2017年5月5日 下午2:22:43 修改备注：
+ * 
+ * @version
+ * 
+ */
+public class ProductAction extends ActionSupport implements
+		ModelDriven<Product> {
+	// 用于接收数据的模型驱动.
+	private Product product = new Product();
+	// 注入商品的Service
+	private ProductService productService;
+	// 接收分类cid
+	private Integer cid;
+	// 接收二级分类id
+	private Integer csid;
+
+	public Integer getCsid() {
+		return csid;
+	}
+
+	public void setCsid(Integer csid) {
+		this.csid = csid;
+	}
+	
+
+	// 注入一级分类的Service
+	private CategoryService categoryService;
+	// 接收当前页数:
+	private int page;
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public void setCategoryService(CategoryService categoryService) {
+		this.categoryService = categoryService;
+	}
+
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
+
+	public Integer getCid() {
+		return cid;
+	}
+
+	public void setProductService(ProductService productService) {
+		this.productService = productService;
+	}
+
+	public Product getModel() {
+		return product;
+	}
+
+	// 根据商品的ID进行查询商品:执行方法:
+	public String findByPid() {
+		// 调用Service的方法完成查询.
+		// 因为模型驱动，直接调用product
+		product = productService.findByPid(product.getPid());
+		return "findByPid";
+	}
+	//根据商品的type进行查询商品
+	public String findByType(){
+		PageBean<Product> pageBean = productService.findByType(product.getType(), page);
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		return "findByType";
+	}
+	//根据商品的价格进行查询商品
+	public  String findByPrice(){
+		PageBean<Product> pageBean = productService.findByPrice(product.getShop_price(), page);
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		return "findByPrice";
+		
+	}
+
+	// 根据分类的id查询商品:
+	public String findByCid() {
+		// List<Category> cList = categoryService.findAll();
+		PageBean<Product> pageBean = productService.findByPageCid(cid, page);// 根据一级分类查询商品,带分页查询
+		// 将PageBean存入到值栈中:
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		return "findByCid";
+	}
+
+	// 根据二级分类id查询商品:
+	public String findByCsid() {
+		// 根据二级分类查询商品
+		PageBean<Product> pageBean = productService.findByPageCsid(csid, page);
+		// 将PageBean存入到值栈中:
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		return "findByCsid";
+	}
+	//搜索汽车
+	public String searchCar() throws UnsupportedEncodingException{
+//		System.out.println("----------"+product.getPname());
+//		String newStr = new String(product.getPname().getBytes("UTF-8"), "GB2312");
+
+//		System.out.println("---********----"+newStr);
+		PageBean<Product> pageBean = productService.searchCar(product.getPname(), page);
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		return "searchCar";
+	}
+	// 多条件查询商品:
+		public String findByMany() {
+			// 根据二级分类查询商品
+			PageBean<Product> pageBean = productService.findByPageMany(Product.class, page);
+			// 将PageBean存入到值栈中:
+			ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+			return "findByMany";
+		}
+
+}

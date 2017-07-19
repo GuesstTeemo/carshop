@@ -1,0 +1,1127 @@
+package cn.itcast.shop.product.vo;
+
+import java.util.Date;
+
+import cn.itcast.shop.categorysecond.vo.CategorySecond;
+
+/**
+ * 商品的实体对象
+ * 
+ * 项目名称：shop00 类名称：Product 类描述： 创建人：Teemo 创建时间：2017年4月27日 下午1:49:07 修改人：Teemo
+ * 修改时间：2017年4月27日 下午1:49:07 修改备注：
+ * 
+ * @version
+ * 
+ */
+public class Product {
+	private Integer pid;
+	private String pname;
+	private String brand;
+	private String pybrand;
+	//商品状态1.商品未审核（不得展示）2.商品审核不通过（不得展示）3.商品审核通过（可以展示到前台）4.商品已售5.商品删除（不得展示）
+	private Integer state;
+	//该汽车上传人员名字
+	private String uploadingservername;
+	//该汽车信息审核人员名字
+	private String checkname;
+	//该汽车信息删除人员名字
+	private String deletename;
+	// 新车价
+	private Double market_price;
+	// 二手商城价
+	private Double shop_price;
+	private String image;
+	/**
+	 * 车辆信息
+	 */
+	// 车系
+	private String carSeries;
+	private String pycarSeries;
+	// 汽车颜色
+	private String colour;
+	// 上牌城市
+	private String city;
+	// 汽车上牌时间：年-月
+	private Date carDate;
+	// 汽车已经行驶里程
+	private String mileage;
+	// 汽车排量
+	private String displacement;
+	// 变速箱信息
+	private String gearbox;
+	// 年检到期
+	private String annualInspection;
+	// 保险到期
+	private String carInsurance;
+	// 国别
+	private String country;
+	// 车辆图片，前，后，左，右，内饰前排后排
+	private String imageFront;
+	private String imageBehind;
+	private String imageLeft;
+	private String imageRight;
+	private String imageInterior1;
+	private String imageInterior2;
+	// 发动机舱
+	private String imageEngine_compartment;
+	// 车顶
+	private String imageRoof;
+	// 后备箱
+	private String imageTrunk;
+	// 底盘
+	private String imageChassis;
+	// 车型,小型车，紧凑型车，中型车，中大型车，大型车，跑车，SUV,MPV等
+	private String type;
+
+	// 汽车的描述，关键字搜索从这里面关联：马自达 2017款阿特兹 2.0L蓝天豪华版
+	private String pdesc;
+	// 是否热销
+	private Integer is_hot;
+	private Date pdate;
+
+	/**
+	 * 事故排查
+	 */
+	// 1.排除泡水
+	// 发动机主线束
+	private Integer Main_engine_bundle;
+	// 防火墙隔音棉
+	private Integer Firewall_insulation_cotton;
+	// 安全带底部
+	private Integer Seat_belt;
+	// 保险盒及ECU接口
+	private Integer Insurance_box_and_ECU_interface;
+	// 车内线束
+	private Integer vehicle_wiring_harness;
+	// 全车地胶地毯
+	private Integer footmat;
+	// 全车座椅坐垫
+	private Integer seat;
+	// 后备箱边角及备胎槽
+	private Integer trunk;
+	// 烟灰缸底座
+	private Integer ashtray;
+	// 座椅滑轨及安装螺丝
+	private Integer slide_and_installation_screw;
+	// 2.排除火烧
+	// 发动机线束及橡胶制品
+	private Integer Engine_wire_and_rubber_products;
+	// 车辆覆盖件及驾驶舱
+	private Integer Vehicle_cover_and_cockpit;
+	// 3.排除重大碰撞
+	// 左A柱PNL - A-PILLAR LH
+	private Integer A_PILLAR_LH;
+	// 右A柱 PNL - A-PILLAR RH
+	private Integer A_PILLAR_RH;
+	// 左B柱 PNL - B-PILLAR LH
+	private Integer B_PILLAR_LH;
+	// 右B柱 PNL - B-PILLAR RH
+	private Integer B_PILLAR_RH;
+	// 左C柱
+	private Integer C_PILLAR_LH;
+	// 右C柱
+	private Integer C_PILLAR_RH;
+	// 左D柱
+	private Integer D_PILLAR_LH;
+	// 右D柱
+	private Integer D_PILLAR_RH;
+	// 左前翼子板内村
+	private Integer Left_front_wing_subboard_village;
+	// 右前翼子板内衬
+	private Integer Right_wing_front_lining;
+	// 左前减震器座
+	private Integer Left_front_shock_absorber_seat;
+	// 右前减震器座
+	private Integer Right_front_shock_absorber_seat;
+	// 左后翼子板内衬
+	private Integer Left_rear_wing_subplate_lining;
+	// 右后翼子板内衬
+	private Integer Right_rear_wing_subplate_lining;
+	// 左侧底边梁
+	private Integer Left_hand_side_beam;
+	// 右侧底边梁
+	private Integer Right_hand_side_beam;
+	// 左前纵梁
+	private Integer Left_front_longeron;
+	// 右前纵梁
+	private Integer Right_front_longeron;
+	// 左车顶边梁
+	private Integer Left_roof_edge_girder;
+	// 右车顶边梁
+	private Integer Right_roof_edge_girder;
+	// 左后纵梁
+	private Integer Left_rear_rail;
+	// 右后纵梁
+	private Integer Right_rear_rail;
+	// 后围板
+	private Integer back_panel;
+	// 防火墙
+	private Integer firewall;
+
+	/*
+	 * 车况系统检测
+	 */
+	// 1.指示灯系统检测
+	// 近光灯
+	private Integer Dipped_headlight;
+	// 远光灯
+	private Integer High_beam;
+	// 前雾灯
+	private Integer front_fog_lamp;
+	// 后雾灯
+	private Integer rear_fog_lamp;
+	// 刹车灯
+	private Integer stop_lamp;
+	// 倒车灯
+	private Integer backup_light;
+	// 前转向灯
+	private Integer front_signal;
+	// 后转向灯
+	private Integer back_signal;
+	// 室内顶灯
+	private Integer Indoor_dome_light;
+	// 疝气大灯
+	private Integer Car_hernias_headlight;
+	// LED大灯
+	private Integer LED_headlight;
+	// 卤素大灯
+	private Integer Halogen_lamps;
+	// 大灯高度可调
+	private Integer Headlight_height_adjustable;
+	// 大灯清洗
+	private Integer Headlight_cleaning;
+	// 自动头灯
+	private Integer Automatic_headlamp;
+
+	// 2.随车工具检测
+	// 维修工具包
+	private Integer Maintenance_Kit;
+	// 备胎
+	private Integer spare_tire;
+	// 千斤顶
+	private Integer Lifting_jack;
+	// 三角警示标
+	private Integer Triangle_warning_sign;
+	// 灭火器
+	private Integer Fire_Extinguisher;
+	// 3.底盘悬挂项检测
+	// 左前减震器
+	private Integer Left_front_shock_absorber;
+	// 右前减震器
+	private Integer Right_front_shock_absorber;
+	// 左后减震器
+	private Integer Left_rear_shock_absorber;
+	// 右后减震器
+	private Integer Rear_right_shock_absorber;
+	// 消音器（尾段）
+	private Integer Silencer;
+	// 4.刹车及发动机舱检测
+	// 发动机缸垫
+	private Integer Engine_cylinder_gasket;
+	// 制动油壶
+	private Integer Brake_oiler;
+	// 冷凝器
+	private Integer condenser;
+	// 电瓶（极柱）
+	private Integer Battery;
+	// 机油液面
+	private Integer Oil_level;
+	// 发动机总成
+	private Integer Engine_assembly;
+	// 变速箱总成
+	private Integer Transmission_assembly;
+	// 水箱水管
+	private Integer Water_pipe;
+	// 助力油壶
+	private Integer Oiler;
+	// 防冻液液面
+	private Integer Antifreeze_level;
+	// 转向助力泵
+	private Integer Power_Steering_Pump;
+
+	
+
+	// 二级分类的外键:使用二级分类的对象.
+	private CategorySecond categorySecond;
+
+	public Integer getPid() {
+		return pid;
+	}
+
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
+
+	public String getPname() {
+		return pname;
+	}
+
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+
+	public Double getMarket_price() {
+		return market_price;
+	}
+
+	public void setMarket_price(Double market_price) {
+		this.market_price = market_price;
+	}
+
+	public Double getShop_price() {
+		return shop_price;
+	}
+
+	public void setShop_price(Double shop_price) {
+		this.shop_price = shop_price;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getPdesc() {
+		return pdesc;
+	}
+
+	public void setPdesc(String pdesc) {
+		this.pdesc = pdesc;
+	}
+
+	public String getCarSeries() {
+		return carSeries;
+	}
+
+	public void setCarSeries(String carSeries) {
+		this.carSeries = carSeries;
+	}
+
+	public Integer getIs_hot() {
+		return is_hot;
+	}
+
+	public void setIs_hot(Integer is_hot) {
+		this.is_hot = is_hot;
+	}
+
+	public Date getPdate() {
+		return pdate;
+	}
+
+	public void setPdate(Date pdate) {
+		this.pdate = pdate;
+	}
+
+	public CategorySecond getCategorySecond() {
+		return categorySecond;
+	}
+
+	public void setCategorySecond(CategorySecond categorySecond) {
+		this.categorySecond = categorySecond;
+	}
+
+	public String getColour() {
+		return colour;
+	}
+
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+
+	public String getMileage() {
+		return mileage;
+	}
+
+	public void setMileage(String mileage) {
+		this.mileage = mileage;
+	}
+
+	public String getDisplacement() {
+		return displacement;
+	}
+
+	public void setDisplacement(String displacement) {
+		this.displacement = displacement;
+	}
+
+	public String getGearbox() {
+		return gearbox;
+	}
+
+	public void setGearbox(String gearbox) {
+		this.gearbox = gearbox;
+	}
+
+	public String getAnnualInspection() {
+		return annualInspection;
+	}
+
+	public void setAnnualInspection(String annualInspection) {
+		this.annualInspection = annualInspection;
+	}
+
+	public String getCarInsurance() {
+		return carInsurance;
+	}
+
+	public void setCarInsurance(String carInsurance) {
+		this.carInsurance = carInsurance;
+	}
+
+	public String getImageFront() {
+		return imageFront;
+	}
+
+	public void setImageFront(String imageFront) {
+		this.imageFront = imageFront;
+	}
+
+	public String getImageBehind() {
+		return imageBehind;
+	}
+
+	public void setImageBehind(String imageBehind) {
+		this.imageBehind = imageBehind;
+	}
+
+	public String getImageLeft() {
+		return imageLeft;
+	}
+
+	public void setImageLeft(String imageLeft) {
+		this.imageLeft = imageLeft;
+	}
+
+	public String getImageRight() {
+		return imageRight;
+	}
+
+	public void setImageRight(String imageRight) {
+		this.imageRight = imageRight;
+	}
+
+	public String getImageInterior1() {
+		return imageInterior1;
+	}
+
+	public void setImageInterior1(String imageInterior1) {
+		this.imageInterior1 = imageInterior1;
+	}
+
+	public String getImageInterior2() {
+		return imageInterior2;
+	}
+
+	public void setImageInterior2(String imageInterior2) {
+		this.imageInterior2 = imageInterior2;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Integer getMain_engine_bundle() {
+		return Main_engine_bundle;
+	}
+
+	public void setMain_engine_bundle(Integer main_engine_bundle) {
+		Main_engine_bundle = main_engine_bundle;
+	}
+
+	public Integer getFirewall_insulation_cotton() {
+		return Firewall_insulation_cotton;
+	}
+
+	public void setFirewall_insulation_cotton(Integer firewall_insulation_cotton) {
+		Firewall_insulation_cotton = firewall_insulation_cotton;
+	}
+
+	public Integer getSeat_belt() {
+		return Seat_belt;
+	}
+
+	public void setSeat_belt(Integer seat_belt) {
+		Seat_belt = seat_belt;
+	}
+
+	public Integer getInsurance_box_and_ECU_interface() {
+		return Insurance_box_and_ECU_interface;
+	}
+
+	public void setInsurance_box_and_ECU_interface(
+			Integer insurance_box_and_ECU_interface) {
+		Insurance_box_and_ECU_interface = insurance_box_and_ECU_interface;
+	}
+
+	public Integer getVehicle_wiring_harness() {
+		return vehicle_wiring_harness;
+	}
+
+	public void setVehicle_wiring_harness(Integer vehicle_wiring_harness) {
+		this.vehicle_wiring_harness = vehicle_wiring_harness;
+	}
+
+	public Integer getFootmat() {
+		return footmat;
+	}
+
+	public void setFootmat(Integer footmat) {
+		this.footmat = footmat;
+	}
+
+	public Integer getSeat() {
+		return seat;
+	}
+
+	public void setSeat(Integer seat) {
+		this.seat = seat;
+	}
+
+	public Integer getTrunk() {
+		return trunk;
+	}
+
+	public void setTrunk(Integer trunk) {
+		this.trunk = trunk;
+	}
+
+	public Integer getAshtray() {
+		return ashtray;
+	}
+
+	public void setAshtray(Integer ashtray) {
+		this.ashtray = ashtray;
+	}
+
+	public Integer getSlide_and_installation_screw() {
+		return slide_and_installation_screw;
+	}
+
+	public void setSlide_and_installation_screw(Integer slide_and_installation_screw) {
+		this.slide_and_installation_screw = slide_and_installation_screw;
+	}
+
+	public Integer getEngine_wire_and_rubber_products() {
+		return Engine_wire_and_rubber_products;
+	}
+
+	public void setEngine_wire_and_rubber_products(
+			Integer engine_wire_and_rubber_products) {
+		Engine_wire_and_rubber_products = engine_wire_and_rubber_products;
+	}
+
+	public Integer getVehicle_cover_and_cockpit() {
+		return Vehicle_cover_and_cockpit;
+	}
+
+	public void setVehicle_cover_and_cockpit(Integer vehicle_cover_and_cockpit) {
+		Vehicle_cover_and_cockpit = vehicle_cover_and_cockpit;
+	}
+
+	public Integer getA_PILLAR_LH() {
+		return A_PILLAR_LH;
+	}
+
+	public void setA_PILLAR_LH(Integer a_PILLAR_LH) {
+		A_PILLAR_LH = a_PILLAR_LH;
+	}
+
+	public Integer getA_PILLAR_RH() {
+		return A_PILLAR_RH;
+	}
+
+	public void setA_PILLAR_RH(Integer a_PILLAR_RH) {
+		A_PILLAR_RH = a_PILLAR_RH;
+	}
+
+	public Integer getB_PILLAR_LH() {
+		return B_PILLAR_LH;
+	}
+
+	public void setB_PILLAR_LH(Integer b_PILLAR_LH) {
+		B_PILLAR_LH = b_PILLAR_LH;
+	}
+
+	public Integer getB_PILLAR_RH() {
+		return B_PILLAR_RH;
+	}
+
+	public void setB_PILLAR_RH(Integer b_PILLAR_RH) {
+		B_PILLAR_RH = b_PILLAR_RH;
+	}
+
+	public Integer getC_PILLAR_LH() {
+		return C_PILLAR_LH;
+	}
+
+	public void setC_PILLAR_LH(Integer c_PILLAR_LH) {
+		C_PILLAR_LH = c_PILLAR_LH;
+	}
+
+	public Integer getC_PILLAR_RH() {
+		return C_PILLAR_RH;
+	}
+
+	public void setC_PILLAR_RH(Integer c_PILLAR_RH) {
+		C_PILLAR_RH = c_PILLAR_RH;
+	}
+
+	public Integer getD_PILLAR_LH() {
+		return D_PILLAR_LH;
+	}
+
+	public void setD_PILLAR_LH(Integer d_PILLAR_LH) {
+		D_PILLAR_LH = d_PILLAR_LH;
+	}
+
+	public Integer getD_PILLAR_RH() {
+		return D_PILLAR_RH;
+	}
+
+	public void setD_PILLAR_RH(Integer d_PILLAR_RH) {
+		D_PILLAR_RH = d_PILLAR_RH;
+	}
+
+	public Integer getLeft_front_wing_subboard_village() {
+		return Left_front_wing_subboard_village;
+	}
+
+	public void setLeft_front_wing_subboard_village(
+			Integer left_front_wing_subboard_village) {
+		Left_front_wing_subboard_village = left_front_wing_subboard_village;
+	}
+
+	public Integer getRight_wing_front_lining() {
+		return Right_wing_front_lining;
+	}
+
+	public void setRight_wing_front_lining(Integer right_wing_front_lining) {
+		Right_wing_front_lining = right_wing_front_lining;
+	}
+
+	public Integer getLeft_front_shock_absorber_seat() {
+		return Left_front_shock_absorber_seat;
+	}
+
+	public void setLeft_front_shock_absorber_seat(
+			Integer left_front_shock_absorber_seat) {
+		Left_front_shock_absorber_seat = left_front_shock_absorber_seat;
+	}
+
+	public Integer getRight_front_shock_absorber_seat() {
+		return Right_front_shock_absorber_seat;
+	}
+
+	public void setRight_front_shock_absorber_seat(
+			Integer right_front_shock_absorber_seat) {
+		Right_front_shock_absorber_seat = right_front_shock_absorber_seat;
+	}
+
+	public Integer getLeft_rear_wing_subplate_lining() {
+		return Left_rear_wing_subplate_lining;
+	}
+
+	public void setLeft_rear_wing_subplate_lining(
+			Integer left_rear_wing_subplate_lining) {
+		Left_rear_wing_subplate_lining = left_rear_wing_subplate_lining;
+	}
+
+	public Integer getRight_rear_wing_subplate_lining() {
+		return Right_rear_wing_subplate_lining;
+	}
+
+	public void setRight_rear_wing_subplate_lining(
+			Integer right_rear_wing_subplate_lining) {
+		Right_rear_wing_subplate_lining = right_rear_wing_subplate_lining;
+	}
+
+	public Integer getLeft_hand_side_beam() {
+		return Left_hand_side_beam;
+	}
+
+	public void setLeft_hand_side_beam(Integer left_hand_side_beam) {
+		Left_hand_side_beam = left_hand_side_beam;
+	}
+
+	public Integer getRight_hand_side_beam() {
+		return Right_hand_side_beam;
+	}
+
+	public void setRight_hand_side_beam(Integer right_hand_side_beam) {
+		Right_hand_side_beam = right_hand_side_beam;
+	}
+
+	public Integer getLeft_front_longeron() {
+		return Left_front_longeron;
+	}
+
+	public void setLeft_front_longeron(Integer left_front_longeron) {
+		Left_front_longeron = left_front_longeron;
+	}
+
+	public Integer getRight_front_longeron() {
+		return Right_front_longeron;
+	}
+
+	public void setRight_front_longeron(Integer right_front_longeron) {
+		Right_front_longeron = right_front_longeron;
+	}
+
+	public Integer getLeft_roof_edge_girder() {
+		return Left_roof_edge_girder;
+	}
+
+	public void setLeft_roof_edge_girder(Integer left_roof_edge_girder) {
+		Left_roof_edge_girder = left_roof_edge_girder;
+	}
+
+	public Integer getRight_roof_edge_girder() {
+		return Right_roof_edge_girder;
+	}
+
+	public void setRight_roof_edge_girder(Integer right_roof_edge_girder) {
+		Right_roof_edge_girder = right_roof_edge_girder;
+	}
+
+	public Integer getBack_panel() {
+		return back_panel;
+	}
+
+	public void setBack_panel(Integer back_panel) {
+		this.back_panel = back_panel;
+	}
+
+	public Integer getFirewall() {
+		return firewall;
+	}
+
+	public void setFirewall(Integer firewall) {
+		this.firewall = firewall;
+	}
+
+	public Integer getDipped_headlight() {
+		return Dipped_headlight;
+	}
+
+	public void setDipped_headlight(Integer dipped_headlight) {
+		Dipped_headlight = dipped_headlight;
+	}
+
+	public Integer getHigh_beam() {
+		return High_beam;
+	}
+
+	public void setHigh_beam(Integer high_beam) {
+		High_beam = high_beam;
+	}
+
+	public Integer getFront_fog_lamp() {
+		return front_fog_lamp;
+	}
+
+	public void setFront_fog_lamp(Integer front_fog_lamp) {
+		this.front_fog_lamp = front_fog_lamp;
+	}
+
+	public Integer getRear_fog_lamp() {
+		return rear_fog_lamp;
+	}
+
+	public void setRear_fog_lamp(Integer rear_fog_lamp) {
+		this.rear_fog_lamp = rear_fog_lamp;
+	}
+
+	public Integer getStop_lamp() {
+		return stop_lamp;
+	}
+
+	public void setStop_lamp(Integer stop_lamp) {
+		this.stop_lamp = stop_lamp;
+	}
+
+	public Integer getBackup_light() {
+		return backup_light;
+	}
+
+	public void setBackup_light(Integer backup_light) {
+		this.backup_light = backup_light;
+	}
+
+	public Integer getFront_signal() {
+		return front_signal;
+	}
+
+	public void setFront_signal(Integer front_signal) {
+		this.front_signal = front_signal;
+	}
+
+	public Integer getBack_signal() {
+		return back_signal;
+	}
+
+	public void setBack_signal(Integer back_signal) {
+		this.back_signal = back_signal;
+	}
+
+	public Integer getIndoor_dome_light() {
+		return Indoor_dome_light;
+	}
+
+	public void setIndoor_dome_light(Integer indoor_dome_light) {
+		Indoor_dome_light = indoor_dome_light;
+	}
+
+	public Integer getCar_hernias_headlight() {
+		return Car_hernias_headlight;
+	}
+
+	public void setCar_hernias_headlight(Integer car_hernias_headlight) {
+		Car_hernias_headlight = car_hernias_headlight;
+	}
+
+	public Integer getLED_headlight() {
+		return LED_headlight;
+	}
+
+	public void setLED_headlight(Integer lED_headlight) {
+		LED_headlight = lED_headlight;
+	}
+
+	public Integer getHalogen_lamps() {
+		return Halogen_lamps;
+	}
+
+	public void setHalogen_lamps(Integer halogen_lamps) {
+		Halogen_lamps = halogen_lamps;
+	}
+
+	public Integer getHeadlight_height_adjustable() {
+		return Headlight_height_adjustable;
+	}
+
+	public void setHeadlight_height_adjustable(Integer headlight_height_adjustable) {
+		Headlight_height_adjustable = headlight_height_adjustable;
+	}
+
+	public Integer getHeadlight_cleaning() {
+		return Headlight_cleaning;
+	}
+
+	public void setHeadlight_cleaning(Integer headlight_cleaning) {
+		Headlight_cleaning = headlight_cleaning;
+	}
+
+	public Integer getAutomatic_headlamp() {
+		return Automatic_headlamp;
+	}
+
+	public void setAutomatic_headlamp(Integer automatic_headlamp) {
+		Automatic_headlamp = automatic_headlamp;
+	}
+
+	public Integer getMaintenance_Kit() {
+		return Maintenance_Kit;
+	}
+
+	public void setMaintenance_Kit(Integer maintenance_Kit) {
+		Maintenance_Kit = maintenance_Kit;
+	}
+
+	public Integer getSpare_tire() {
+		return spare_tire;
+	}
+
+	public void setSpare_tire(Integer spare_tire) {
+		this.spare_tire = spare_tire;
+	}
+
+	public Integer getLifting_jack() {
+		return Lifting_jack;
+	}
+
+	public void setLifting_jack(Integer lifting_jack) {
+		Lifting_jack = lifting_jack;
+	}
+
+	public Integer getTriangle_warning_sign() {
+		return Triangle_warning_sign;
+	}
+
+	public void setTriangle_warning_sign(Integer triangle_warning_sign) {
+		Triangle_warning_sign = triangle_warning_sign;
+	}
+
+	public Integer getFire_Extinguisher() {
+		return Fire_Extinguisher;
+	}
+
+	public void setFire_Extinguisher(Integer fire_Extinguisher) {
+		Fire_Extinguisher = fire_Extinguisher;
+	}
+
+	public Integer getLeft_front_shock_absorber() {
+		return Left_front_shock_absorber;
+	}
+
+	public void setLeft_front_shock_absorber(Integer left_front_shock_absorber) {
+		Left_front_shock_absorber = left_front_shock_absorber;
+	}
+
+	public Integer getRight_front_shock_absorber() {
+		return Right_front_shock_absorber;
+	}
+
+	public void setRight_front_shock_absorber(Integer right_front_shock_absorber) {
+		Right_front_shock_absorber = right_front_shock_absorber;
+	}
+
+	public Integer getLeft_rear_shock_absorber() {
+		return Left_rear_shock_absorber;
+	}
+
+	public void setLeft_rear_shock_absorber(Integer left_rear_shock_absorber) {
+		Left_rear_shock_absorber = left_rear_shock_absorber;
+	}
+
+	public Integer getRear_right_shock_absorber() {
+		return Rear_right_shock_absorber;
+	}
+
+	public void setRear_right_shock_absorber(Integer rear_right_shock_absorber) {
+		Rear_right_shock_absorber = rear_right_shock_absorber;
+	}
+
+	public Integer getSilencer() {
+		return Silencer;
+	}
+
+	public void setSilencer(Integer silencer) {
+		Silencer = silencer;
+	}
+
+	public Integer getEngine_cylinder_gasket() {
+		return Engine_cylinder_gasket;
+	}
+
+	public void setEngine_cylinder_gasket(Integer engine_cylinder_gasket) {
+		Engine_cylinder_gasket = engine_cylinder_gasket;
+	}
+
+	public Integer getBrake_oiler() {
+		return Brake_oiler;
+	}
+
+	public void setBrake_oiler(Integer brake_oiler) {
+		Brake_oiler = brake_oiler;
+	}
+
+	public Integer getCondenser() {
+		return condenser;
+	}
+
+	public void setCondenser(Integer condenser) {
+		this.condenser = condenser;
+	}
+
+	public Integer getBattery() {
+		return Battery;
+	}
+
+	public void setBattery(Integer battery) {
+		Battery = battery;
+	}
+
+	public Integer getOil_level() {
+		return Oil_level;
+	}
+
+	public void setOil_level(Integer oil_level) {
+		Oil_level = oil_level;
+	}
+
+	public Integer getEngine_assembly() {
+		return Engine_assembly;
+	}
+
+	public void setEngine_assembly(Integer engine_assembly) {
+		Engine_assembly = engine_assembly;
+	}
+
+	public Integer getTransmission_assembly() {
+		return Transmission_assembly;
+	}
+
+	public void setTransmission_assembly(Integer transmission_assembly) {
+		Transmission_assembly = transmission_assembly;
+	}
+
+	public Integer getWater_pipe() {
+		return Water_pipe;
+	}
+
+	public void setWater_pipe(Integer water_pipe) {
+		Water_pipe = water_pipe;
+	}
+
+	public Integer getOiler() {
+		return Oiler;
+	}
+
+	public void setOiler(Integer oiler) {
+		Oiler = oiler;
+	}
+
+	public Integer getAntifreeze_level() {
+		return Antifreeze_level;
+	}
+
+	public void setAntifreeze_level(Integer antifreeze_level) {
+		Antifreeze_level = antifreeze_level;
+	}
+
+	public Integer getPower_Steering_Pump() {
+		return Power_Steering_Pump;
+	}
+
+	public void setPower_Steering_Pump(Integer power_Steering_Pump) {
+		Power_Steering_Pump = power_Steering_Pump;
+	}
+
+	public String getImageEngine_compartment() {
+		return imageEngine_compartment;
+	}
+
+	public void setImageEngine_compartment(String imageEngine_compartment) {
+		this.imageEngine_compartment = imageEngine_compartment;
+	}
+
+	public String getImageRoof() {
+		return imageRoof;
+	}
+
+	public void setImageRoof(String imageRoof) {
+		this.imageRoof = imageRoof;
+	}
+
+	public String getImageTrunk() {
+		return imageTrunk;
+	}
+
+	public void setImageTrunk(String imageTrunk) {
+		this.imageTrunk = imageTrunk;
+	}
+
+	public String getImageChassis() {
+		return imageChassis;
+	}
+
+	public void setImageChassis(String imageChassis) {
+		this.imageChassis = imageChassis;
+	}
+
+	public Integer getLeft_rear_rail() {
+		return Left_rear_rail;
+	}
+
+	public void setLeft_rear_rail(Integer left_rear_rail) {
+		Left_rear_rail = left_rear_rail;
+	}
+
+	public Integer getRight_rear_rail() {
+		return Right_rear_rail;
+	}
+
+	public void setRight_rear_rail(Integer right_rear_rail) {
+		Right_rear_rail = right_rear_rail;
+	}
+
+	public Date getCarDate() {
+		return carDate;
+	}
+
+	public void setCarDate(Date carDate) {
+		this.carDate = carDate;
+	}
+
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	public String getUploadingservername() {
+		return uploadingservername;
+	}
+
+	public void setUploadingservername(String uploadingservername) {
+		this.uploadingservername = uploadingservername;
+	}
+
+	public String getCheckname() {
+		return checkname;
+	}
+
+	public void setCheckname(String checkname) {
+		this.checkname = checkname;
+	}
+
+	public String getDeletename() {
+		return deletename;
+	}
+
+	public void setDeletename(String deletename) {
+		this.deletename = deletename;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+	public String getPybrand() {
+		return pybrand;
+	}
+
+	public void setPybrand(String pybrand) {
+		this.pybrand = pybrand;
+	}
+
+	public String getPycarSeries() {
+		return pycarSeries;
+	}
+
+	public void setPycarSeries(String pycarSeries) {
+		this.pycarSeries = pycarSeries;
+	}
+	
+}

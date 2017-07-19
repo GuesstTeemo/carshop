@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.itcast.shop.product.vo.Product" table="product">
+		<id name="pid">
+		<!-- 主键的生成策略 -->
+			<generator class="native"/>
+		</id>
+		<property name="pname"/>
+		<property name="market_price"/>
+		<property name="shop_price"/>
+		<property name="image"/>
+		<property name="pdesc"/>
+		<property name="is_hot"/>
+		<property name="pdate"/>
+		
+		<property name="type"/>
+		<property name="colour"/>
+		<property name="city"/>
+		<property name="carSeries"/>
+		<property name="carData"/>
+		<property name="mileage"/>
+		<property name="displacement"/>
+		<property name="gearbox"/>
+		<property name="country"/>
+		<property name="annualInspection"/>
+		<property name="carInsurance"/>
+		<property name="imageFront"/>
+		<property name="imageBehind"/>
+		<property name="imageLeft"/>
+		<property name="imageRight"/>
+		<property name="imageInterior1"/>
+		<property name="imageInterior2"/>
+		
+		<!-- <property name="type"/> -->
+		
+		<many-to-one name="categorySecond" lazy="false" class="cn.itcast.shop.categorysecond.vo.CategorySecond" column="csid"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,899 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<LINK href="${pageContext.request.contextPath}/css/Style1.css"
+	type="text/css" rel="stylesheet">
+</HEAD>
+
+<body>
+	<!--  -->
+	<form id="userAction_save_do" name="Form1"
+		action="${pageContext.request.contextPath}/adminProduct_save.action"
+		method="post" enctype="multipart/form-data">
+		&nbsp;
+		<table cellSpacing="1" cellPadding="5" width="100%" align="center"
+			bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
+			<tr>
+				<td class="ta_01" align="center" bgColor="#afd1f3" colSpan="4"
+					height="26"><strong><STRONG>添加商品</STRONG> </strong></td>
+			</tr>
+
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					商品名称：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="pname" value="" id="userAction_save_do_logonName" class="bg" />
+				</td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					是否热门：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="is_hot">
+						<option value="1" selected="selected">是</option>
+						<option value="0">否</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					购入价格：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="market_price" value="" id="userAction_save_do_logonName"
+					class="bg" />万元</td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					商城价格：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="shop_price" value="" id="userAction_save_do_logonName"
+					class="bg" />万元</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					商品图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					国别：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="country">
+						<option value="法系">法系</option>
+						<option value="日系">日系</option>
+						<option value="德系">德系</option>
+						<option value="美系">美系</option>
+						<option value="国产" selected="selected">国产</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					所属的二级分类：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="categorySecond.csid">
+						<s:iterator var="cs" value="csList">
+							<option value="<s:property value="#cs.csid"/>"><s:property
+									value="#cs.csname" /></option>
+						</s:iterator>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					汽车类型：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="type">
+						<option value="小型车" <s:if test="model.type=='小型车'">selected</s:if>>小型车</option>
+						<option value="紧凑型车"
+							<s:if test="model.type=='紧凑型车'">selected</s:if>>紧凑型车</option>
+						<option value="中型车" <s:if test="model.type=='中型车'">selected</s:if>>中型车</option>
+						<option value="大型车" <s:if test="model.type=='大型车'">selected</s:if>>大型车</option>
+						<option value="SUV" <s:if test="model.type=='SUV'">selected</s:if>>SUV</option>
+						<option value="MPV" <s:if test="model.type=='MPV'">selected</s:if>>MPV</option>
+						<option value="跑车" <s:if test="model.type=='跑车'">selected</s:if>>跑车</option>
+				</select></td>
+			</tr>
+			<!-------------------------------------------------------------------------------------  -->
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					汽车颜色：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="colour" value="" id="userAction_save_do_logonName" class="bg" />
+				</td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					上牌城市：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="city" value="" id="userAction_save_do_logonName" class="bg" />
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					上牌时间：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text" placeholder="格式：2016-05-06"
+					name="carData" value="" id="userAction_save_do_logonName"
+					class="bg" /></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					行驶里程：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="mileage" value="" id="userAction_save_do_logonName"
+					class="bg" />万公里</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					汽车排量：</td>
+					<td class="ta_01" bgColor="#ffffff"><select name="displacement">
+						<option value="1.0T">1.0T</option>
+						<option value="1.5T">1.5T</option>
+						<option value="2.0T" >2.0T</option>
+						<option value="3.0T">3.0T</option>
+						<option value="1.4L">1.4L</option>
+						<option value="1.6L" selected="selected">1.6L</option>
+						<option value="2.0L">2.0L</option>
+						<option value="2.5L">2.5L</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					变速箱信息：</td>
+					<td class="ta_01" bgColor="#ffffff"><select name="gearbox">
+						<option value="双离合">双离合</option>
+						<option value="9速手自一体">9速手自一体</option>
+						<option value="6速手自一体" selected="selected">6速手自一体</option>
+						<option value="手动">手动</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					年检到期：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="annualInspection" value="" id="userAction_save_do_logonName" placeholder="格式：2016-05-06"
+					class="bg" /></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					保险到期：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="carInsurance" value="" id="userAction_save_do_logonName" placeholder="格式：2016-05-06"
+					class="bg" /></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆前方图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆后方图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆左边图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆右边图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆前排内饰图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆后排内饰图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+			</tr>
+			<!--  2017-6-21:添加的汽车检测细节图片------begin-->
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆发动机舱图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆后备箱图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆车顶图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆底盘图片：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="file"
+					name="upload" /></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					汽车车型：</td>
+				<td class="ta_01" bgColor="#ffffff"><input type="text"
+					name="carSeries" value="" id="userAction_save_do_logonName" placeholder="输入汽车型号，比如A6L,卡罗拉"
+					class="bg" /></td>
+			</tr>
+			<!------end-------------------------------------------------------------------------------  -->
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					商品描述：</td>
+				<td class="ta_01" bgColor="#ffffff" colspan="3"><textarea
+						name="pdesc" rows="5" cols="30"></textarea></td>
+			</tr>
+			<!-- 2017-6-21：添加的汽车检测项目,begin -------------------------------------------------------->
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="3" color="#10acea">事故排查：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="2" color="red">1.排除泡水：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					发动机主线束：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Main_engine_bundle">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					防火墙隔音棉：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Firewall_insulation_cotton">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					安全带底部：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="Seat_belt">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					保险盒及ECU接口：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Insurance_box_and_ECU_interface">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车内线束：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="vehicle_wiring_harness">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					全车地胶地毯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="footmat">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					全车座椅坐垫：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="seat">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					后备箱边角及备胎槽：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="trunk">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					烟灰缸底座：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="ashtray">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					座椅滑轨及安装螺丝：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="slide_and_installation_screw">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="2" color="red">2.排除火烧：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					发动机线束及橡胶制品：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Engine_wire_and_rubber_products">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					车辆覆盖件及驾驶舱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Vehicle_cover_and_cockpit">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="2" color="red">3.排除重大碰撞：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左A柱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="A_PILLAR_LH">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右A柱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="A_PILLAR_RH">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左B柱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="B_PILLAR_LH">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右B柱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="B_PILLAR_RH">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左C柱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="C_PILLAR_LH">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右C柱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="C_PILLAR_RH">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左D柱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="D_PILLAR_LH">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右D柱：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="D_PILLAR_RH">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左前翼子板内村：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_front_wing_subboard_village">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右前翼子板内衬：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Right_wing_front_lining">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左前减震器座：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_front_shock_absorber_seat">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右前减震器座：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Right_front_shock_absorber_seat">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左后翼子板内衬：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_rear_wing_subplate_lining">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右后翼子板内衬：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Right_rear_wing_subplate_lining">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左侧底边梁：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_hand_side_beam">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右侧底边梁：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Right_hand_side_beam">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左前纵梁：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_front_longeron">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右前纵梁：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Right_front_longeron">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左车顶边梁：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_roof_edge_girder">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右车顶边梁：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Right_roof_edge_girder">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左后纵梁：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_rear_rail">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右后纵梁：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Right_rear_rail">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					后围板：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="back_panel">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					防火墙：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="firewall">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="3" color="#10acea">车况系统检测：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="2" color="red">1.指示灯系统检测：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					近光灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Dipped_headlight">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					远光灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="High_beam">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					前雾灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="front_fog_lamp">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					后雾灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="rear_fog_lamp">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					刹车灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="stop_lamp">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					倒车灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="backup_light">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					前转向灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="front_signal">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					后转向灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="back_signal">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					室内顶灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Indoor_dome_light">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					疝气大灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Car_hernias_headlight">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					LED大灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="LED_headlight">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					卤素大灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Halogen_lamps">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					大灯高度可调：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Headlight_height_adjustable">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					大灯清洗：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Headlight_cleaning">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					自动头灯：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Automatic_headlamp">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="2" color="red">2.随车工具检测：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					维修工具包：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Maintenance_Kit">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					备胎：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="spare_tire">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					千斤顶：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="Lifting_jack">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					三角警示标：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Triangle_warning_sign">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					灭火器：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Fire_Extinguisher">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="2" color="red"> 3.底盘悬挂项检测：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左前减震器：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_front_shock_absorber">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右前减震器：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Right_front_shock_absorber">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					左后减震器：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Left_rear_shock_absorber">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					右后减震器：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Rear_right_shock_absorber">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					消音器（尾段）：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="Silencer">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					<font size="2" color="red"> 4.刹车及发动机舱检测：</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					发动机缸垫：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Engine_cylinder_gasket">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					制动油壶：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="Brake_oiler">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					冷凝器：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="condenser">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					电瓶（极柱）：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="Battery">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					机油液面：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="Oil_level">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					发动机总成：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Engine_assembly">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					变速箱总成：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Transmission_assembly">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					水箱水管：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="Water_pipe">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					助力油壶：</td>
+				<td class="ta_01" bgColor="#ffffff"><select name="Oiler">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					防冻液液面：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Antifreeze_level">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
+					转向助力泵：</td>
+				<td class="ta_01" bgColor="#ffffff"><select
+					name="Power_Steering_Pump">
+						<option value="2">无此项目（功能）</option>
+						<option value="1" selected="selected">正常</option>
+						<option value="0">异常</option>
+				</select></td>
+			</tr>
+			<tr>
+
+				<!-- end -->
+			<tr>
+				<td class="ta_01" style="WIDTH: 100%" align="center"
+					bgColor="#f5fafe" colSpan="4">
+					<button type="submit" id="userAction_save_do_submit" value="确定"
+						class="button_ok">&#30830;&#23450;</button> <FONT face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT>
+					<button type="reset" value="重置" class="button_cancel">&#37325;&#32622;</button>
+
+					<FONT face="宋体">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT> <INPUT
+					class="button_ok" type="button" onclick="history.go(-1)" value="返回" />
+					<span id="Label1"></span>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</HTML>

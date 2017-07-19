@@ -1,0 +1,283 @@
+package cn.itcast.shop.product.vo;
+
+import java.util.Date;
+
+import cn.itcast.shop.categorysecond.vo.CategorySecond;
+
+/**
+ * 商品的实体对象
+ * 
+ * 项目名称：shop00 类名称：Product 类描述： 创建人：Teemo 创建时间：2017年4月27日 下午1:49:07 修改人：Teemo
+ * 修改时间：2017年4月27日 下午1:49:07 修改备注：
+ * 
+ * @version
+ * 
+ */
+public class Product {
+	private Integer pid;
+	public String pname;
+
+	// 新车价
+	private Double market_price;
+	// 二手商城价
+	private Double shop_price;
+	private String image;
+
+	/**
+	 * 添加的字段
+	 */
+	//车系
+	private String carSeries;
+	//汽车颜色
+	private String colour;
+	// 上牌城市
+	private String city;
+	// 汽车上牌时间：年-月
+	private String carData;
+	// 汽车已经行驶里程
+	private String mileage;
+	// 汽车排量
+	private String displacement;
+	// 变速箱信息
+	private String gearbox;
+	// 年检到期
+	private String annualInspection;
+	// 保险到期
+	private String carInsurance;
+	//国别
+	private String country;
+	// 车辆图片，前，后，左，右，内饰前排后排
+	private String imageFront;
+	private String imageBehind;
+	private String imageLeft;
+	private String imageRight;
+	private String imageInterior1;
+	private String imageInterior2;
+	// 车型,小型车，紧凑型车，中型车，中大型车，大型车，跑车，SUV,MPV等
+	private String type;
+	// //事故排查图片
+	// private String imageAccdient;
+	// //外观内饰检测
+	// private String imageFacade;
+	// //核心部件检测
+	// private String imageCore;
+	// //常用功能检测
+	// private String imageCommon;
+
+	// 汽车的描述，关键字搜索从这里面关联：马自达   2017款阿特兹   2.0L蓝天豪华版
+	private String pdesc;
+	// 是否热销
+	private Integer is_hot;
+	private Date pdate;
+	// 二级分类的外键:使用二级分类的对象.
+	private CategorySecond categorySecond;
+
+	public Integer getPid() {
+		return pid;
+	}
+
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
+
+	public String getPname() {
+		return pname;
+	}
+
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+
+	public Double getMarket_price() {
+		return market_price;
+	}
+
+	public void setMarket_price(Double market_price) {
+		this.market_price = market_price;
+	}
+
+	public Double getShop_price() {
+		return shop_price;
+	}
+
+	public void setShop_price(Double shop_price) {
+		this.shop_price = shop_price;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getPdesc() {
+		return pdesc;
+	}
+
+	public void setPdesc(String pdesc) {
+		this.pdesc = pdesc;
+	}
+
+	public String getCarSeries() {
+		return carSeries;
+	}
+
+	public void setCarSeries(String carSeries) {
+		this.carSeries = carSeries;
+	}
+
+	public Integer getIs_hot() {
+		return is_hot;
+	}
+
+	public void setIs_hot(Integer is_hot) {
+		this.is_hot = is_hot;
+	}
+
+	public Date getPdate() {
+		return pdate;
+	}
+
+	public void setPdate(Date pdate) {
+		this.pdate = pdate;
+	}
+
+	public CategorySecond getCategorySecond() {
+		return categorySecond;
+	}
+
+	public void setCategorySecond(CategorySecond categorySecond) {
+		this.categorySecond = categorySecond;
+	}
+
+	public String getColour() {
+		return colour;
+	}
+
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getCarData() {
+		return carData;
+	}
+
+	public void setCarData(String carData) {
+		this.carData = carData;
+	}
+
+	public String getMileage() {
+		return mileage;
+	}
+
+	public void setMileage(String mileage) {
+		this.mileage = mileage;
+	}
+
+	public String getDisplacement() {
+		return displacement;
+	}
+
+	public void setDisplacement(String displacement) {
+		this.displacement = displacement;
+	}
+
+	public String getGearbox() {
+		return gearbox;
+	}
+
+	public void setGearbox(String gearbox) {
+		this.gearbox = gearbox;
+	}
+
+	public String getAnnualInspection() {
+		return annualInspection;
+	}
+
+	public void setAnnualInspection(String annualInspection) {
+		this.annualInspection = annualInspection;
+	}
+
+	public String getCarInsurance() {
+		return carInsurance;
+	}
+
+	public void setCarInsurance(String carInsurance) {
+		this.carInsurance = carInsurance;
+	}
+
+	public String getImageFront() {
+		return imageFront;
+	}
+
+	public void setImageFront(String imageFront) {
+		this.imageFront = imageFront;
+	}
+
+	public String getImageBehind() {
+		return imageBehind;
+	}
+
+	public void setImageBehind(String imageBehind) {
+		this.imageBehind = imageBehind;
+	}
+
+	public String getImageLeft() {
+		return imageLeft;
+	}
+
+	public void setImageLeft(String imageLeft) {
+		this.imageLeft = imageLeft;
+	}
+
+	public String getImageRight() {
+		return imageRight;
+	}
+
+	public void setImageRight(String imageRight) {
+		this.imageRight = imageRight;
+	}
+
+	public String getImageInterior1() {
+		return imageInterior1;
+	}
+
+	public void setImageInterior1(String imageInterior1) {
+		this.imageInterior1 = imageInterior1;
+	}
+
+	public String getImageInterior2() {
+		return imageInterior2;
+	}
+
+	public void setImageInterior2(String imageInterior2) {
+		this.imageInterior2 = imageInterior2;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+}

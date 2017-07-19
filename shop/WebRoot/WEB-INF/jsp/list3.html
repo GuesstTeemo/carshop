@@ -1,0 +1,992 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>demo</title>
+<link rel="stylesheet" type="text/css" href="css/base.css"/>
+<link rel="stylesheet" type="text/css" href="css/home.css"/>
+<link rel="stylesheet" type="text/css" href="city/city.css">
+<link rel="stylesheet" type="text/css" href="css/change.css"/>
+<script type="text/javascript" src="script/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="script/home_ban.js"></script>
+<script type="text/javascript" src="script/eg_top_search.js"></script>
+<script type="text/javascript" src="script/city.js"></script>
+<script type="text/javascript" src="script/snncar.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.navmenu li').hover(function(){
+		$('span',this).stop().css('height','2px');
+		$('span',this).animate({
+			left:'0',
+			width:'100%',
+			right:'0'
+		},200);
+	},function(){
+		$('span',this).stop().animate({
+			left:'50%',
+			width:'0'
+		},200);
+	});
+});
+</script>
+<!--导航登陆网页版下拉-->
+<script type="text/javascript">
+$(function () {
+	var setTime;
+	$(".egc-top .nav-cent .operate").hover(function () {
+		var _this = $(this);
+		setTime = setTimeout(function () {
+			_this.find(".sec-version").slideDown(200);
+			_this.find("i").removeClass("icon-angle-down").addClass("icon-angle-up");
+		}, 200);
+	}, function () {
+		if (setTime) {
+			clearTimeout(setTime);
+		}
+		$(".egc-top .nav-cent .sec-version").slideUp(200);
+		$(".egc-top .nav-cent .operate i").removeClass("icon-angle-up").addClass("icon-angle-down");
+	});
+});
+</script>
+<!--底部信息下拉-->
+<script type="text/javascript">
+$(function () {
+	var wind_wd = $(window).width();
+	if(wind_wd<=735){
+		/* $submenu.first().delay(400).slideDown(700);*/
+			$('.relate .tit').on('click', function() {
+			$(this).next('.con').slideToggle()
+			$(this).parent().siblings('.items').find('.con').slideUp();
+			});
+		}else{
+			 $('.relate .tit').unbind("click");
+			 $('.relate .con').show();
+			}
+	$(window).resize(function(){
+ 		var wind_wd = $(window).width();
+		if(wind_wd<=735){
+		/* $submenu.first().delay(400).slideDown(700);*/
+			$('.relate .tit').on('click', function() {
+			$(this).next('.con').slideToggle()
+			$(this).parent().siblings('.items').find('.con').slideUp();
+			});
+		}else{
+			 $('.relate .tit').unbind("click");
+			 $('.relate .con').show();
+			}
+	});
+});
+</script>
+
+<!--搜搜框获取焦点-->
+<script type="text/javascript">
+$(function () {
+$('.sea-ipt-txt').focus(function() { 
+$(this).addClass("on");
+$('.search-btn').addClass("on"); 
+}); 
+$('.sea-ipt-txt').blur(function() { 
+$(this).removeClass("on");
+$('.search-btn').removeClass("on");
+}); 
+});
+</script>
+<!--下拉导航关闭-->
+<script type="text/javascript">
+$(function () {
+ $('.menu-mb i').click(function() { 
+   $(".navigation-mb-list").slideDown(300);
+ }); 
+ $('.navigation-mb-list .list-close-btn').click(function() { 
+   $(".navigation-mb-list").slideUp(300);
+ });
+});
+</script>
+<!--stress搜索关闭-->
+<script type="text/javascript">
+$(function () {
+	var setTime;
+	$(".sercat .weixin").hover(function () {
+		setTime = setTimeout(function () {
+			$(".sercat .wxewm").show();
+		}, 300);
+	}, function () {
+		if (setTime) {
+			clearTimeout(setTime);
+		}
+		$(".sercat .wxewm").hide();
+	});
+});
+</script>
+<script type="text/javascript">
+$(function () {
+	var scroll_heitht = $('body').offset().top;
+	var isShow = true;
+	$(window).scroll(function () {
+       if ($(window).scrollTop() > scroll_heitht && isShow) {
+			 $('.stress-search-box').slideDown(200);
+       }else{
+		   $('.stress-search-box').slideUp(200);
+		   }
+       });
+   $('.stress-close a').click(function(){
+	   isShow=false;
+	   $('.stress-search-box').slideUp(200).unbind(window,aa);
+	   });
+});
+</script>
+</head>
+<body>
+<!--<div class="egc-top">
+  <div class="nav-cent">
+    <div class="top-r"> <a href="#" id="b-regist">注册</a>|<a href="#" id="b-login" class="b-login">登陆</a> </div>
+    <div class="top-l">全国统一客服热线：400-877-9288</div>
+    <div class="clear_fix"></div>
+  </div>
+</div>-->
+<div class="navigation">
+  <div class="nav-cent">
+    <div class="logo"><a href="index.html"><img src="" width="240" /></a></div>
+    <div class="city"> <span id="DY_site_name" class="red city-name Left">合肥</span>
+      <div id="JS_hide_city_menu_11" class="city-select cut_handdler Left"> <a href="javascript:void(0);" class="common-bg selector">切换城市</a>
+        <div id="JS_header_city_bar_box" class="hide_city_group">
+          <div class="hideMap">
+            <div class="showPanel clearfix">
+              <div class="Left mycity">
+                <div id="JS_current_city_box"> 当前城市：<strong id="JS_city_current_city">合肥</strong> </div>
+                <div id="JS_default_city_delete" style="display: none;"></div>
+              </div>
+            </div>
+            <div class="showPanel showPanel2 clearfix">
+              <div class="hot_city" id="JS_header_city_hot"> </div>
+              <div class="city_words mt10" id="JS_header_city_char"> </div>
+            </div>
+            <div class="scrollBody">
+              <div class="cityMap clearfix">
+                <table id="JS_header_city_list" class="city_list" style="margin-top: 0px;">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <div class="scrollBar"> <span id="JS_header_city_bar" style="margin-top: 0px;"></span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="common-bg city-logo"></span> </div>
+    <div class="sea">
+      <div class="egc-sea-box">
+        <input type="text" class="sea-ipt-txt" placeholder="搜索您想要的车" />
+        <a href="#" class="search-btn">搜索</a> </div>
+    </div>
+    <!--<div class="hot-phone"> <i></i> <span class="js-change-phone">400-877-9288</span> </div>-->
+  </div>
+</div>
+<ul class="navmenu">
+  <li><a href="index.html">首页</a><span></span></li>
+  <li  class="active"><a href="list.html">我要买车</a><span></span></li>
+  <li><a href="#">服务保障</a><span></span></li>
+</ul>
+<div class="clear_fix"></div>
+<div class="stress-search-box row">
+  <div class="stress-close"><a href="javascript:;"></a></div>
+  <div class="nav-cents">
+    <ul>
+      <li class="logo"><a href="index.html"><img src=""  width="180"/></a></li>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="list.html">我要买车</a></li>
+      <li><a href="#">服务保障</a></li>
+    </ul>
+    <div class="seas">
+      <div class="egc-sea-box">
+        <input type="text" class="sea-ipt-txt" placeholder="搜索您想要的车">
+        <a href="#" class="search-btn">搜索</a> </div>
+    </div>
+  </div>
+</div>
+<div class="clear_fix"></div>
+<!--所在位置-->
+<div class="crumbp"> <a href="index.html">首页</a> <em>&gt;</em> <span>个人二手车</span> </div>
+<div class="mainbox"> 
+  <!--搜索条件-->
+  <div class="comfilter-bd">
+    <div class="filterBox">
+      <dl class="fliter-bd clearfix sx">
+        <dt>品牌：</dt>
+        <dd class="clickBrandWidget"> 
+        	<a class="on" href="#">不限</a> 
+        	<a  class="sx_child" href="#" name="brand" rel="dazhong" title="大众"> 大众 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="benteng" title="奔腾"> 奔腾 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="hyundai" title="现代"> 现代 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="toyota" title="丰田"> 丰田 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="audi" title="奥迪"> 奥迪 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="richan" title="日产"> 日产 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="wuling" title="五菱"> 五菱 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="ford" title="福特"> 福特 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="suzuki" title="铃木"> 铃木 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="mazda" title="马自达"> 马自达 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="byd" title="比亚迪"> 比亚迪 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="honda" title="本田"> 本田 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="chery" title="奇瑞"> 奇瑞 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="jili" title="吉利"> 吉利 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="chevrolet" title="雪佛兰"> 雪佛兰 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="fengxing" title="东风风行"> 东风风行 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="kia" title="起亚"> 起亚 </a> 
+        	<a  class="sx_child" href="#" name="brand" rel="hafu" title="哈弗"> 哈弗 </a> 
+          <!--品牌全部--> 
+          
+          <span class="brand-all z30"> <em data-role="show">全部<i></i></em>
+          <div data-role="otherBrand" class="otherbrand" style="display: none;">
+            <div class="o-b-box"><span class="arrow"><s></s></span>
+              <ul data-role="letterNav" class="o-b-list">
+                <li class="clearfix"> <span>A</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="Alpina" title="Alpina"> Alpina </a>
+                  	<a class="sx_child" href="#" name="brand" rel="AC Schnitzer" title="AC Schnitzer">AC Schnitzer</a>
+	                <a class="sx_child" href="#" name="brand" rel="astonmartin" title="阿斯顿马丁">阿斯顿马丁</a>
+	                <a class="sx_child" href="#" name="brand" rel="ankai" title="安凯客车">安凯客车</a>
+	                <a class="sx_child" href="#" name="brand" rel="alfaromeo" title="阿尔法罗密欧">阿尔法罗密欧</a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>B</span>
+                  <div>
+                  	<a class="sx_child" href="#" name="brand" rel="babosi" title="巴博斯"> 巴博斯 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="baojun" title="宝骏"> 宝骏 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="bmw" title="宝马"> 宝马 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="baowo" title="宝沃"> 宝沃 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="porsche" title="保时捷"> 保时捷 </a> 
+                  	<a class="sx_child"  href="#" name="brand" title="北京" rel="beijing"> 北京 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="beiqi" title="北汽"> 北汽 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="benz" title="奔驰"> 奔驰 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="bisu" title="比速汽车"> 比速汽车 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="biaozhi" title="标致"> 标致 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="buick" title="别克"> 别克 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="bentley" title="宾利"> 宾利 </a> 
+                  	<a class="sx_child"  href="#" name="brand" rel="bujiadi" title="布加迪"> 布加迪 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>C</span>
+                  <div> 
+                  	<a class="sx_child" href="#" name="brand" rel="changhe"  title="昌河"> 昌河 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="chuanqi" title="传祺"> 传祺 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="changcheng" title="长安"> 长安 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="changanshangyong" title="长安商用"> 长安商用 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="changcheng" title="长城"> 长城 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="changfeng" title="长丰"> 长丰 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>D</span>
+                  <div> 
+                  	<a class="sx_child" href="#" name="brand" rel="DS" title="DS"> DS </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="dafa" title="大发"> 大发 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="datong" title="大通"> 大通 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="daoqi" title="道奇"> 道奇 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="dihao" title="帝豪"> 帝豪 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="dongman" title="东南"> 东南 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>F</span>
+                  <div> 
+                  	<a class="sx_child" href="#" name="brand" rel="fiat" title="菲亚特"> 菲亚特 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="futian" title="福田"> 福田 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="fudi" title="福迪"> 福迪 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="futianchengyongche" title="福田乗用车"> 福田乗用车 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="fuqiqiteng" title="福汽启腾"> 福汽启腾 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="Faraday Future" title="Faraday Future"> Faraday Future </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>G</span>
+                  <div> 
+                  	<a class="sx_child" href="#" name="brand" rel="chuanqi" title="广汽传祺"> 广汽传祺 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="jiao" title="广汽吉奥"> 广汽吉奥 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="GMC" title="GMC"> GMC </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="guanzhi" title="观致"> 观致 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="galue" title="光冈"> 光冈 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>H</span>
+                  <div> 
+                  	<a class="sx_child" href="#" name="brand" rel="haima" title="海马"> 海马 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="huatai" title="华泰"> 华泰 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="huanghai" title="黄海"> 黄海 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="hanma" title="悍马"> 悍马 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="hongqi" title="红旗"> 红旗 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="hafei" title="哈飞"> 哈飞 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="sh-huizhong" title="汇众"> 汇众 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="hanteng" title="汉腾汽车"> 汉腾汽车 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="huapu" title="华普"> 华普 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="huasong" title="华颂"> 华颂 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="htxny" title="华泰新能源"> 华泰新能源 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="fusangheibao" title="黑豹"> 黑豹 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="huaxiang" title="华翔"> 华翔 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="zhongke-huabei" title="华北"> 华北 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="huayang" title="华阳"> 华阳 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="hengtian" title="恒天"> 恒天 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="hangtian" title="航天"> 航天 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="haige" title="海格"> 海格 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="huakai" title="华凯"> 华凯 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>J</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="Jeep" title="Jeep"> Jeep </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jili" title="吉利汽车"> 吉利汽车 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jinghuai" title="江淮"> 江淮 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jiebao" title="捷豹"> 捷豹 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jinbei" title="金杯"> 金杯 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jiangling" title="江铃"> 江铃 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jinlong" title="金龙"> 金龙 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jlshwuche" title="九龙"> 九龙 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jljtxny" title="江铃集团新能源"> 江铃集团新能源 </a> 
+                  	<a 	class="sx_child" href="#" name="brand" rel="jljtqq" title="江铃集团轻汽"> 江铃集团轻汽 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jincheng" title="金城"> 金城 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jiangman" title="江南"> 江南 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="jinlv" title="金旅"> 金旅 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>K</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="cadillac" title="凯迪拉克"> 凯迪拉克 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="chrysler" title="克莱斯勒"> 克莱斯勒 </a>
+                  	<a  class="sx_child" href="#" name="brand" rel="kaiyi" title="凯翼"> 凯翼 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="krui" title="开瑞"> 开瑞 </a>
+                  	<a  class="sx_child" href="#" name="brand" rel="kaiwei" title="卡威"> 卡威 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="kasheng" title="卡升"> 卡升 </a>
+                  	<a  class="sx_child" href="#" name="brand" rel="kenisaige" title="科尼塞克"> 科尼塞克 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="kaersen" title="卡尔森"> 卡尔森 </a>
+                  	<a  class="sx_child" href="#" name="brand" rel="kaibaihe" title="凯佰赫"> 凯佰赫 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="KTM" title="KTM"> KTM </a>
+                  	<a  class="sx_child" href="#" name="brand" rel="kaimaqiche" title="凯马汽车"> 凯马汽车 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="kangdi" title="康迪全球鹰"> 康迪全球鹰 </a>
+                  </div>
+                </li>
+                <li class="clearfix"> <span>L</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="landrover" title="路虎"> 路虎 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="suzuki" title="铃木"> 铃木 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="lexus" title="雷克萨斯"> 雷克萨斯 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="liebao" title="猎豹汽车"> 猎豹汽车 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="leinuo" title="雷诺"> 雷诺 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="lufeng" title="陆风"> 陆风 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="linian" title="理念"> 理念 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="lifan" title="力帆汽车"> 力帆汽车 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="lincoln" title="林肯"> 林肯 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="lianhua" title="莲花汽车"> 莲花汽车 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="rolls-royce" title="劳斯莱斯"> 劳斯莱斯 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="lamborghini" title="兰博基尼"> 兰博基尼 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="lotuscars" title="路特斯"> 路特斯 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="laolunshi" title="劳伦士"> 劳伦士 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="ludifangzhou" title="陆地方舟"> 陆地方舟 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="LOCAL MOTORS" title="LOCAL MOTORS"> LOCAL MOTORS </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="rover" title="罗孚"> 罗孚 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="leiding" title="雷丁"> 雷丁 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>M</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="MINI" title="MINI"> MINI </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="MG" title="MG"> MG </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="maserati" title="玛莎拉蒂"> 玛莎拉蒂 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="maikailun" title="迈凯伦"> 迈凯伦 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="maybach" title="迈巴赫"> 迈巴赫 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="mogen" title="摩根"> 摩根 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="meiya" title="美亚"> 美亚 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>N</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="dongfengyulongnazhijie" title="纳智捷"> 纳智捷 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="nanqi" title="南汽"> 南汽 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="njjinlong" title="南京金龙"> 南京金龙 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>O</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="acura" title="讴歌"> 讴歌 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="opel" title="欧宝"> 欧宝 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>P</span>
+                  <div> 
+                  	<a class="sx_child" href="#" name="brand" rel="pajiani" title="帕加尼"> 帕加尼 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>Q</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="qichen" title="启辰"> 启辰 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="qizhibadui" title="乔治巴顿"> 乔治巴顿 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>R</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="rongwei" title="荣威"> 荣威 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="ruilin" title="瑞麒"> 瑞麒 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="ruhu" title="如虎"> 如虎 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>S</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="skoda" title="斯柯达"> 斯柯达 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="smart" title="smart"> smart </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="subaru" title="斯巴鲁"> 斯巴鲁 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="mitsubishi" title="三菱"> 三菱 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="siming" title="思铭"> 思铭 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="datong" title="上汽大通"> 上汽大通 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="saab" title="萨博"> 萨博 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="shuanghuan" title="双环"> 双环 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="sidataike" title="斯达泰克"> 斯达泰克 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="sailin" title="赛麟"> 赛麟 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="SWM斯威汽车" title="SWM斯威汽车"> SWM斯威汽车 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="xiaqitongjia" title="陕汽通家"> 陕汽通家 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="saibao" title="赛宝"> 赛宝 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="shijue" title="世爵"> 世爵 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>T</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="tesila" title="特斯拉"> 特斯拉 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="taikate" title="泰卡特"> 泰卡特 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="tianma" title="天马"> 天马 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="tongbao" title="通宝"> 通宝 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="tongtian" title="通田"> 通田 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="tengshi" title="腾势"> 腾势 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>W</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="volvo" title="沃尔玛"> 沃尔玛 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="weilin" title="威麟"> 威麟 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="weichaiyingzhi" title="潍柴英致"> 潍柴英致 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="wushiling" title="五十铃"> 五十铃 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="WEY" title="WEY"> WEY </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="weilai" title="蔚来"> 蔚来 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="weima" title="威马汽车"> 威马汽车 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="weisiman" title="威丝曼"> 威丝曼 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="wanfeng" title="万丰"> 万丰 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>X</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="citroen" title="雪特龙"> 雪特龙 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="xiyate" title="西雅特"> 西雅特 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="xinkai" title="新凯"> 新凯 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="xintiandi" title="新天地"> 新天地 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>Y</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="infiniti" title="英菲尼迪"> 英菲尼迪 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="tj-yiqi" title="一汽"> 一汽 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="yusheng" title="驭胜"> 驭胜 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="weikeyi" title="依维柯"> 依维柯 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="yema" title="野马汽车"> 野马汽车 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="yongyuan" title="永源"> 永源 </a> 
+                  	<a class="sx_child" href="#" name="brand" rel="yunbao" title="云豹"> 云豹 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="yunque" title="云雀"> 云雀 </a> 
+                  </div>
+                </li>
+                <li class="clearfix"> <span>Z</span>
+                  <div> 
+                  	<a  class="sx_child" href="#" name="brand" rel="zhongtai" title="众泰"> 众泰 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="huachen-zhonghua" title="中华"> 中华 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="zhongxing" title="中兴"> 中兴 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="zhongou" title="中欧"> 中欧 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="zhinuo" title="之诺"> 之诺 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="zhongyu" title="中誉"> 中誉 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="zhongxing" title="中顺"> 中顺 </a> 
+                  	<a  class="sx_child" href="#" name="brand" rel="zhidou" title="知豆"> 知豆 </a> 
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          </span> 
+          <!--品牌全部--> 
+        </dd>
+      </dl>
+      <span class="span1"></span>
+      <dl class="fliter-bd clearfix sx">
+        <dt>车系：</dt>
+        <dd class="clickTagWidget"> 
+        	<a  class="on" href="#">不限</a> 
+        	<a class="sx_child" href="#" name="car" rel="jieda" title="捷达"> 捷达 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="suteng" title="速腾"> 速腾 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="baolai" title="宝来"> 宝来 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="maiteng" title="迈腾"> 迈腾 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="fukesi" title="福克斯"> 福克斯 </a> 
+        	<a class="sx_child" href="#" name="car" rel="hafu" title="哈弗H6"> 哈弗H6 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="lingzhi" title="菱智"> 菱智 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="gaoerfu" title="高尔夫"> 高尔夫 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="wulinghongguang" title="五菱宏光"> 五菱宏光 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="mazida" title="马自达6"> 马自达6 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="benteng-x" title="奔腾X80"> 奔腾X80 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="benteng-b" title="奔腾B50"> 奔腾B50 </a> 
+        	<a  class="sx_child" href="#" name="car" rel="audi" title="奥迪A6L"> 奥迪A6L </a> 
+        	<a  class="sx_child" href="#" name="car" rel="kelusi" title="科鲁兹"> 科鲁兹 </a> 
+        </dd>
+      </dl>
+      <span class="span1"></span>
+      <dl class="fliter-bd clearfix sx">
+        <dt>价格：</dt>
+        <dd> 
+        	<a  class="on" href="#">不限</a> 
+        	<a  class="sx_child" href="#" name="price" rel="3wanyixia" title="3万以下"> 3万以下 </a> 
+        	<a  class="sx_child" href="#" name="price" rel="3dao5wan" title="5万以下"> 3-5万 </a> 
+        	<a  class="sx_child" href="#" name="price" rel="7wanyixia" title="7万以下"> 5-7万 </a> 
+        	<a  class="sx_child" href="#" name="price" rel="9wanyixia" title="9万以下"> 7-9万 </a> 
+        	<a  class="sx_child" href="#" name="price" rel="12wanyixia" title="12万以下"> 9-12万 </a> 
+        	<a  class="sx_child" href="#" name="price" rel="16wanyixia" title="16万以下"> 12-16万 </a> 
+        	<a  class="sx_child" href="#" name="price" rel="20wanyixia" title="20万以下"> 16-20万 </a> 
+        	<a  class="sx_child" href="#" name="price" rel="20wanyishang" title="20万以上"> 20万以上 </a> 
+        	<span class="input-box clearfix rangeFilter">
+          <label>
+            <input type="text" value="" data-default-value="0" size="4" class="js-begin" maxlength="3" id="my_price_b" name="b">
+          </label>
+          <label><i class="input-line">-</i></label>
+          <label>
+            <input type="text" value="" data-default-value="999" size="4" class="js-end" maxlength="3" id="my_price_e" name="e">
+          </label>
+          <label class="input-unit">万</label>
+          <label><a gjalog="" href="#" class="input-btn js-btn">筛选</a></label>
+          </span> </dd>
+      </dl>
+      <span class="span1"></span>
+      <dl class="fliter-bd clearfix sx">
+        <dt>车龄：</dt>
+        <dd> 
+        	<a data-role="filterItemAge" data-value="" class="on" href="#">不限</a> 
+        	<a  class="sx_child" href="#" name="coty" rel="5nianyishang" title="5年以上"> 5年以上 </a> 
+        	<a class="sx_child" href="#" name="coty" rel="5niannei" title="5年内"> 5年内 </a> 
+        	<a  class="sx_child" href="#" name="coty" rel="3niannei" title="3年内"> 3年内 </a> 
+        	<a  class="sx_child" href="#" name="coty" rel="1niannei" title="1年以内"> 1年以内 </a> 
+        </dd>
+      </dl>
+      <span class="span1"></span>
+      <div class="moreitem clearfix">
+        <span>更多：</span>
+        <dl class="selecter sx">
+		<dt>车型</dt>
+		<dd>
+			<ul>
+				<li><a  href="javascript:void(0);">不限</a></li>
+				<li><a class="sx_child" name="models" rel="liangxiang" href="javascript:void(0);"> 两厢轿车 </a></li>
+				<li><a class="sx_child" name="models" rel="sanxiang" href="javascript:void(0);"> 三厢轿车 </a></li>
+				<li><a class="sx_child" name="models" rel="paoche" href="javascript:void(0);"> 跑车 </a></li>
+				<li><a class="sx_child" name="models" rel="SUV" href="javascript:void(0);"> SUV </a></li>
+				<li><a class="sx_child" name="models" rel="MPV" href="javascript:void(0);" > MPV </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+    <dl class="selecter sx">
+		<dt>座位</dt>
+		<dd>
+			<ul>
+				<li><a href="javascript:void(0);">不限</a></li>
+				<li><a class="sx_child" name="seat" rel="2zuo" href="javascript:void(0);" > 2座 </a></li>
+				<li><a class="sx_child" name="seat" rel="4zuo" href="javascript:void(0);"> 4座 </a></li>
+				<li><a class="sx_child" name="seat" rel="5zuo" href="javascript:void(0);"> 5座 </a></li>
+				<li><a class="sx_child" name="seat" rel="6zuo" href="javascript:void(0);"> 6座 </a></li>
+				<li><a class="sx_child" name="seat" rel="7zuo" href="javascript:void(0);"> 7座及以上 </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+    <dl class="selecter sx">
+		<dt>行驶里程</dt>
+		<dd>
+			<ul>
+				<li><a  href="javascript:void(0);">不限</a></li>
+				<li><a class="sx_child" name="mileage" rel="1wangongli" href="javascript:void(0);"> 1万公里内 </a></li>
+				<li><a class="sx_child" name="mileage" rel="3wangongli" href="javascript:void(0);"> 3万公里内 </a></li>
+				<li><a class="sx_child" name="mileage" rel="5wangonglinei" href="javascript:void(0);"> 5万公里内 </a></li>
+				<li><a class="sx_child" name="mileage" rel="5wangonglishang" href="javascript:void(0);"> 5万公里以上 </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+    <dl class="selecter sx">
+		<dt>变速箱</dt>
+		<dd>
+			<ul>
+				<li><a href="javascript:void(0);">不限</a>  </li>
+				<li><a class="sx_child" name="gearbox" rel="shoudong" href="javascript:void(0);"> 手动 </a></li>
+				<li><a class="sx_child" name="gearbox" rel="auto" href="javascript:void(0);"> 自动 </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+    <dl class="selecter sx">
+		<dt>排量</dt>
+		<dd>
+			<ul>
+				<li><a href="javascript:void(0);">不限</a></li>
+				<li><a class="sx_child" name="displacement" rel="1.0yixia" href="javascript:void(0);"> 1.0L以下 </a></li>
+				<li><a class="sx_child" name="displacement" rel="1.0dao1.6" href="javascript:void(0);"> 1.0-1.6L </a></li>
+				<li><a class="sx_child" name="displacement" rel="1.6dao2" href="javascript:void(0);"> 1.6-2.0L </a></li>
+				<li><a class="sx_child" name="displacement" rel="2dao3" href="javascript:void(0);"> 2.0-3.0L </a></li>
+                <li><a class="sx_child" name="displacement" rel="3.0yishang" href="javascript:void(0);"> 3.0L以上 </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+    <dl class="selecter sx">
+		<dt>排放标准</dt>
+		<dd>
+			<ul>
+				<li><a href="javascript:void(0);">不限</a> </li>
+				<li><a class="sx_child" name="discharge" rel="guoer" href="javascript:void(0);"> 国二及以上 </a></li>
+				<li><a class="sx_child" name="discharge" rel="guosan" href="javascript:void(0);"> 国三及以上 </a></li>
+				<li><a class="sx_child" name="discharge" rel="guosi" href="javascript:void(0);"> 国四及以上 </a></li>
+				<li><a class="sx_child" name="discharge" rel="guowu" href="javascript:void(0);"> 国五 </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+    <dl class="selecter sx">
+		<dt>燃油类型</dt>
+		<dd>
+			<ul>
+				<li><a href="javascript:void(0);">不限</a></li>
+				<li><a class="sx_child" name="fuel" rel="gasoline" href="javascript:void(0);"> 汽油 </a></li>
+				<li><a class="sx_child" name="fuel" rel="diesel" href="javascript:void(0);"> 柴油 </a></li>
+				<li><a class="sx_child" name="fuel" rel="electric" href="javascript:void(0);"> 电动 </a></li>
+				<li><a class="sx_child" name="fuel" rel="blend" href="javascript:void(0);"> 油电混合 </a></li>
+                <li><a class="sx_child" name="fuel" rel="other" href="javascript:void(0);"> 其他 </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+    <dl class="selecter sx">
+		<dt>颜色</dt>
+		<dd>
+			<ul>
+				<li><a href="javascript:void(0);">不限</a></li>
+				<li><a class="sx_child" name="color" rel="black" href="javascript:void(0);"> <i class="c-lump03"></i>黑色 </a> </li>
+				<li><a class="sx_child" name="color" rel="white" href="javascript:void(0);"> <i class="c-lump04"></i>白色 </a></li>
+				<li><a class="sx_child" name="color" rel="silver" href="javascript:void(0);"> <i class="c-lump10"></i>银灰色 </a></li>
+				<li><a class="sx_child" name="color" rel="red" href="javascript:void(0);"> <i class="c-lump09"></i>红色 </a> </li>
+                <li><a class="sx_child" name="color" rel="grey" href="javascript:void(0);"> <i class="c-lump15"></i>深灰色 </a></li>
+                <li><a class="sx_child" name="color" rel="orange" href="javascript:void(0);"> <i class="c-lump11"></i>橙色 </a></li>
+                <li><a class="sx_child" name="color" rel="green" href="javascript:void(0);"> <i class="c-lump02"></i>绿色 </a></li>
+                <li><a class="sx_child" name="color" rel="blue" href="javascript:void(0);" > <i class="c-lump05"></i>蓝色 </a></li>
+                <li><a class="sx_child" name="color" rel="coffee" href="javascript:void(0);"> <i class="c-lump06"></i>咖啡色 </a></li>
+                <li><a class="sx_child" name="color" rel="violet" href="javascript:void(0);"> <i class="c-lump07"></i>紫色 </a></li>
+                <li><a class="sx_child" name="color" rel="champagne" href="javascript:void(0);"> <i class="c-lump08"></i>香槟色 </a></li>
+                <li><a class="sx_child" name="color" rel="multicolor" href="javascript:void(0);"> <i class="c-lump12"></i>多彩色 </a></li>
+                <li><a class="sx_child" name="color" rel="yellow" href="javascript:void(0);"> <i class="c-lump13"></i>黄色 </a></li>
+                <li><a class="sx_child" name="color" rel="oterColor" href="javascript:void(0);"> <i class="c-lump14"></i>其它 </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+    <dl class="selecter sx">
+		<dt>国别</dt>
+		<dd>
+			<ul>
+				<li><a href="javascript:void(0);">不限</a></li>
+				<li><a class="sx_child" name="country" rel="German" href="javascript:void(0);"> 德系 </a></li>
+				<li><a class="sx_child" name="country" rel="Japan" href="javascript:void(0);"> 日系 </a></li>
+				<li><a class="sx_child" name="country" rel="USA" href="javascript:void(0);"> 美系 </a></li>
+				<li><a class="sx_child" name="country" rel="France" href="javascript:void(0);"> 法系 </a></li>
+                <li><a class="sx_child" name="country" rel="Korean" href="javascript:void(0);"> 韩系 </a></li>
+                <li><a class="sx_child" name="country" rel="domestic" href="javascript:void(0);"> 国产 </a></li>
+                <li><a class="sx_child" name="country" rel="otherContry" href="javascript:void(0);"> 其他 </a></li>
+			</ul>
+		</dd>
+	</dl>
+	<span class="span1"></span>
+      </div>
+     
+    </div>
+    <div class="sel-menu clearfix zj">
+      <p class="sel-p">当前筛选&gt;</p>
+      <a href="#"  class=""></a> <a href="#"  class="sel-reset qcqb">重置</a>
+      <p class="sel-p">共为您找到<b>508</b>辆车</p>
+    </div>
+  </div>
+  <div class="seqBox clearfix">
+    <p class="fr seqtype">共找到<b>3430</b>辆 </p>
+    <ul class="sequen">
+      <li class="first"><a href="#" >默认排序</a></li>
+      <li> <a href="#" title="" >最新发布 </a> </li>
+      <li> <a href="#" title="">价格<i class="up"></i> </a> </li>
+      <li> <a href="#" title="">车龄<i class="up"></i> </a> </li>
+      <li> <a href="#" title="">里程<i class="up"></i> </a> </li>
+    </ul>
+    
+  </div>
+  <ul class="carList">
+    <li>
+      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="infor.html"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
+        <p class="infoBox"> <a  title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="infor.html" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
+        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
+        <p class="priType-s"> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
+      </div>
+    </li>
+    <li>
+      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="infor.html"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
+        <p class="infoBox"> <a  title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="infor.html" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
+        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
+        <p class="priType-s"> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
+      </div>
+    </li>
+    <li>
+      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="infor.html"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
+        <p class="infoBox"> <a  title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="infor.html" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
+        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
+        <p class="priType-s"> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
+      </div>
+    </li>
+    <li>
+      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="infor.html"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
+        <p class="infoBox"> <a  title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="infor.html" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
+        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
+        <p class="priType-s"> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
+      </div>
+    </li>
+    <li>
+      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="infor.html"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"><i class="sup-yellow"> <em></em> 急降<br>
+        200元 </i> </a>
+        <p class="infoBox"> <a  title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="infor.html" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
+        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
+        <p class="priType-s"><em class="tag-blue">里程少</em> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
+      </div>
+    </li>
+    <li>
+      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="infor.html"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
+        <p class="infoBox"> <a  title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="infor.html" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
+        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
+        <p class="priType-s"> <em class="tag-red">急售</em> <em class="tag-green">准新车</em> <em class="tag-yellow">超值</em> <span> <i class="fc-org priType"> 9.45万 </i> </span> <s>13.00万</s> </p>
+      </div>
+    </li>
+    <li>
+      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="infor.html"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
+        <p class="infoBox"> <a  title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="infor.html" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
+        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
+        <p class="priType-s"> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
+      </div>
+    </li>
+    <li>
+      <div class="list-infoBox"> <a title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" target="_blank" class="imgtype" href="infor.html"> <img width="290" height="194" src="images/carimg.jpg" alt="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版"> </a>
+        <p class="infoBox"> <a  title="奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版" href="infor.html" target="_blank" class="info-title">奇瑞QQ3 2012款 QQ3 0.8 手动 梦想版</a> </p>
+        <p class="fc-gray"> <span class="tag-gray">石家庄</span> <span class="">2014年11月上牌</span> <em class="shuxian">|</em> 行驶2.4万公里 </p>
+        <p class="priType-s"> <span> <i class="fc-org priType"> 2.10万 </i> </span> <s>3.40万</s> </p>
+      </div>
+    </li>
+    
+  </ul>
+</div>
+<div class="pages"> <a class="on" href="#">1</a><a class="" href="#">2</a><a class="" href="#">3</a><a class="" href="#">4</a><a class="" href="#">5</a> <a href="#">6</a><a href="#">&gt;&gt;</a>  </div>
+<div class="clear_fix"></div>
+<!--底部-->
+<div class="ftWrap">
+  <div class="foot">
+    <div class="cent">
+      <div class="relate">
+        <div class="items">
+          <div class="tit"><i class="icon-angle-right"></i>交易帮助</div>
+          <div class="con"> <a href="#">买车帮助</a> <a href="#">卖车帮助</a> <a href="#">过户帮助</a> </div>
+        </div>
+        <div class="items">
+          <div class="tit"><i class="icon-angle-right"></i>客服中心</div>
+          <div class="con"> <a href="abut.html">网站合作</a> <a href="about.html">关于我们</a> <a href="contact.html">联系我们</a> </div>
+        </div>
+        <div class="items">
+          <div class="tit"><i class="icon-angle-right"></i>购车指南</div>
+          <div class="con"> <a href="#">购车帮助</a></div>
+        </div>
+        <div class="app-section"> <img class="js-delayed-img"  src="images/f_wx.jpg">
+          <div class="title">扫码关注微信</div>
+          <p> 随时随地，秒杀好车<br />
+            优质个人二手车 </p>
+        </div>
+        <div class="items last">
+          <div class="tel">
+            <h1>400-877-9288</h1>
+            <p>周一至周日 8:00-18:00</p>
+            <p>免费咨询(咨询、建议、投诉)</p>
+            <a href="#" class="kf"><i class="kf-icon"></i>在线客服</a> </div>
+          <div class="tel-mb">
+            <p><span>400-710-8886</span>周一至周日 8:00-18:00(仅收市话费)</p>
+            <a href="#" class="kf"><i class="kf-icon"></i>在线客服</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<script type="text/javascript" src="script/3c-menu.js"></script> 
+<script type="text/javascript" src="script/lg_reg.js"></script> 
+<!--会员登录和注册弹出框开始-->
+<div id="popBox">
+  <div class="popCont"> <a class="p_closed">关闭</a>
+    <div class="p-tab"> <a>会员登录<i></i></a><a>会员注册<i></i></a> </div>
+    <div class="p-detail">
+      <div class="p-dl">
+        <form onsubmit="return check();" enctype="multipart/form-data" method="post" name="form" id="form">
+          <ul class="login-items">
+            <li>
+              <label>用户名(手机号)</label>
+              <input class="input" type="text" value="" maxlength="32"  name="username" placeholder="请输入您的手机号">
+            </li>
+            <li>
+              <label>密码</label>
+              <input class="input" type="password" value="" maxlength="16"  name="password">
+            </li>
+          </ul>
+          <div class="login-check">
+            <input type="checkbox" name="checkbox" style=" width:auto;" />
+            <label>记住我</label>
+            <a href="Meet/editPass">忘记登录密码？</a> </div>
+          <div class="login-button">
+            <input type="hidden" value="" name="carid" class="ordercarid" />
+            <input type="hidden" value="" name="carstatus" class="orderstatus" />
+            <input type="button"  value="登&nbsp;&nbsp;&nbsp;&nbsp;陆" class="fM" onclick="$('#form').submit()" />
+          </div>
+        </form>
+      </div>
+      <div class="p-dl">
+        <form class="registForm" onsubmit="return regcheck();" enctype="multipart/form-data" method="post" name="reg" id="reg">
+          <ul class="login-items">
+            <li class="clearfix">
+              <input class="input" name="mobile" id="mobile" type="text" value="" placeholder="手机号码（登录帐号）">
+            </li>
+            <li class="clearfix">
+              <input class="input left" type="text" value=""  name="verify" placeholder="输入验证码" style="width:100px;" />
+              <div id="send"><a href="#" class="send_code right">获取验证码</a></div>
+            </li>
+            <li class="clearfix">
+              <input class="input" type="text" value=""  name="realname" placeholder="姓名">
+            </li>
+            <li class="clearfix sex">
+              <input type="radio" checked="" name="gender" value="M" />
+              男&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="gender" value="F" />
+              女 </li>
+            <li class="clearfix">
+              <input id="" class="input" type="password" name="password" value="" placeholder="输入密码（六位字符）">
+            </li>
+          </ul>
+          <div class="login-button">
+            <input type="hidden" value="" name="carid" class="ordercarid" />
+            <input type="hidden" value="" name="carstatus" class="orderstatus" />
+            <input type="button"  value="立即注册" class="fM" onclick="$('#reg').submit()" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--会员登录和注册弹出框结束--> 
+<script>
+$(function(){
+	var t=null,$this,i=0;
+	//品牌
+	$(".brand-all").bind({
+		mouseenter:function(){
+			$(this).find(".otherbrand").show();
+		},
+		mouseleave:function(){
+			$(this).find(".otherbrand").hide();
+		}
+	});
+	
+});
+</script> 
+<script type="text/javascript">
+$(".hoverWidget").each(function() {
+				$(this).mouseenter(function() {
+					$(this).addClass("active")
+				}).mouseleave(function() {
+					$(this).removeClass("active")
+				})
+			});
+</script>
+<div id="leftsead">
+	<ul>
+	     <li>
+			<a id="top_btn">
+				<img src="images/foot03/ll06.png" width="47" height="49" class="hides"/>
+				<img src="images/foot03/l06.png" width="47" height="49" class="shows" />
+			</a>
+		</li>
+
+		<li>
+			<a href="">
+				<img src="images/foot03/ll03.png"  width="47" height="49" class="hides"/>
+				<img src="images/foot03/l03.png" width="47" height="49" class="shows" />
+			</a>
+		</li>
+
+		<li>
+			<a href="">
+					<img src="images/foot03/ll02.png" width="166" height="49" class="hides"/>
+				<img src="images/foot03/l04.png" width="47" height="49" class="shows" />
+			</a>
+		</li>
+
+		<li>
+			<a class="youhui">
+				<img src="images/foot03/l02.png" width="47" height="49" class="shows" />
+				<img src="images/foot03/zfew.jpg" width="196" height="205" class="hides" usemap="#taklhtml"/>
+			</a>
+		</li>
+	
+	
+	
+	</ul>
+</div><!--leftsead end-->
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$("#leftsead a").hover(function(){
+		if($(this).prop("className")=="youhui"){
+			$(this).children("img.hides").show();
+		}else{
+			$(this).children("img.hides").show();
+			$(this).children("img.shows").hide();
+			$(this).children("img.hides").animate({marginRight:'0px'},'slow'); 
+		}
+	},function(){ 
+		if($(this).prop("className")=="youhui"){
+			$(this).children("img.hides").hide('slow');
+		}else{
+			$(this).children("img.hides").animate({marginRight:'-143px'},'slow',function(){$(this).hide();$(this).next("img.shows").show();});
+		}
+	});
+
+	$("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 600);});
+
+});
+</script>
+<script type="text/javascript">
+$(function(){
+	$(".selecter").each(function(){
+		var s=$(this);
+		var z=parseInt(s.css("z-index"));
+		var dt=$(this).children("dt");
+		var dd=$(this).children("dd");
+		var _show=function(){dd.slideDown(200);dt.addClass("cur");s.css("z-index",z+1);};   //展开效果
+		var _hide=function(){dd.slideUp(200);dt.removeClass("cur");s.css("z-index",z);};    //关闭效果
+		dt.click(function(){dd.is(":hidden")?_show():_hide();});
+		dd.find("a").click(function(){dt.html($(this).html());_hide();});     //选择效果（如需要传值，可自定义参数，在此处返回对应的“value”值 ）
+		$("body").click(function(i){ !$(i.target).parents(".selecter").first().is(s) ? _hide():"";});
+	})
+})
+</script>
+<script type="text/javascript" src="script/shanxuan.js"></script>
+<script type="text/javascript">
+    $('.sx').sx({
+        nuv:".zj",//筛选结果
+        zi:"sx_child",//所有筛选范围内的子类
+        qingchu:'.qcqb',//清除全部
+        over:'sel-a'//选中状态样式名称
+    });
+</script>
+</body>
+</html>
